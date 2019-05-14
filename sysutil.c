@@ -64,6 +64,11 @@ int tcp_server (const char *host, unsigned short port)
 }
 
 /*需要修改 /etc/hosts-- 要不就换一种编程方式*/
+/**
+ *
+ * @param ip
+ * @return
+ */
 int getlocalip (char *ip)
 {
   /*
@@ -91,6 +96,10 @@ int getlocalip (char *ip)
   return 0;
 }
 
+/**
+ *
+ * @param fd
+ */
 void activate_nonblock (int fd)
 {
   int ret;
@@ -104,6 +113,10 @@ void activate_nonblock (int fd)
     ERR_EXIT("fcntl");
 }
 
+/**
+ *
+ * @param fd
+ */
 void deactivate_nonblock (int fd)
 {
   int ret;
@@ -117,6 +130,12 @@ void deactivate_nonblock (int fd)
     ERR_EXIT("fcntl");
 }
 
+/**
+ *
+ * @param fd
+ * @param wait_seconds
+ * @return
+ */
 int read_timeout (int fd, unsigned int wait_seconds)
 {
   int ret = 0;
@@ -148,6 +167,12 @@ int read_timeout (int fd, unsigned int wait_seconds)
   return ret;
 }
 
+/**
+ *
+ * @param fd
+ * @param wait_seconds
+ * @return
+ */
 int write_timeout (int fd, unsigned int wait_seconds)
 {
   int ret = 0;
@@ -179,6 +204,13 @@ int write_timeout (int fd, unsigned int wait_seconds)
   return ret;
 }
 
+/**
+ *
+ * @param fd
+ * @param addr
+ * @param wait_seconds
+ * @return
+ */
 int accept_timeout (int fd, struct sockaddr_in *addr, unsigned int wait_seconds)
 {
   int ret;
@@ -217,6 +249,13 @@ int accept_timeout (int fd, struct sockaddr_in *addr, unsigned int wait_seconds)
   return ret;
 }
 
+/**
+ *
+ * @param fd
+ * @param addr
+ * @param wait_seconds
+ * @return
+ */
 int connect_timeout (int fd, struct sockaddr_in *addr, unsigned int wait_seconds)
 {
   int ret;
@@ -281,6 +320,13 @@ int connect_timeout (int fd, struct sockaddr_in *addr, unsigned int wait_seconds
   return ret;
 }
 
+/**
+ *
+ * @param fd
+ * @param buf
+ * @param count
+ * @return
+ */
 ssize_t readn (int fd, void *buf, size_t count)
 {
   size_t nleft = count;
@@ -305,6 +351,13 @@ ssize_t readn (int fd, void *buf, size_t count)
   return count;
 }
 
+/**
+ *
+ * @param fd
+ * @param buf
+ * @param count
+ * @return
+ */
 ssize_t writen (int fd, const void *buf, size_t count)
 {
   size_t nleft = count;
@@ -329,6 +382,13 @@ ssize_t writen (int fd, const void *buf, size_t count)
   return count;
 }
 
+/**
+ *
+ * @param sockfd
+ * @param buf
+ * @param len
+ * @return
+ */
 ssize_t recv_peek (int sockfd, void *buf, size_t len)
 {
   while (1)
@@ -340,6 +400,13 @@ ssize_t recv_peek (int sockfd, void *buf, size_t len)
     }
 }
 
+/**
+ *
+ * @param sockfd
+ * @param buf
+ * @param maxline
+ * @return
+ */
 ssize_t readline (int sockfd, void *buf, size_t maxline)
 {
   int ret;
@@ -382,6 +449,11 @@ ssize_t readline (int sockfd, void *buf, size_t maxline)
   return -1;
 }
 
+/**
+ *
+ * @param sock_fd
+ * @param fd
+ */
 void send_fd (int sock_fd, int fd)
 {
   int ret;
@@ -413,6 +485,11 @@ void send_fd (int sock_fd, int fd)
     ERR_EXIT("sendmsg");
 }
 
+/**
+ *
+ * @param sock_fd
+ * @return
+ */
 int recv_fd (const int sock_fd)
 {
   int ret;
@@ -450,4 +527,5 @@ int recv_fd (const int sock_fd)
 
   return recv_fd;
 }
+
 
