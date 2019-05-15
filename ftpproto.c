@@ -32,8 +32,6 @@ void handle_child (session_t *sess)
 
       printf ("cmdline=[%s]\n", sess->cmdline);
       //去除\r\n
-
-      //处理FTP命令
       str_trim_crlf (sess->cmdline);
       printf ("cmdline=[%s]\n", sess->cmdline);
       //解析FTP命令与参数
@@ -86,9 +84,9 @@ static void do_pass (session_t *sess)
       return;
     }
 
-    /*
-     * !!!!!!!
-     */
+  /*
+   * !!!!!!!
+   */
   struct spwd *sp = getspnam (pw->pw_name);
   if (sp == NULL)
     {
@@ -105,6 +103,11 @@ static void do_pass (session_t *sess)
     }
 
   //getspnam ()
+
+  /*更改进程组ID用户ID，用户目录*/
+  setegid (pw->pw_gid);
+  seteuid (pw->pw_uid);
+  chdir (pw->pw_dir);
 
   ftp_reply (sess, FTP_LOGINOK, "Login successful.");
 
