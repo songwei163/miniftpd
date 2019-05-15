@@ -4,9 +4,13 @@
 
 #include "ftpproto.h"
 
+void ftp_reply (session_t* sess, status, const char *text);
+static void do_user (session_t *sess);
+static void do_pass (session_t *sess);
+
 void handle_child (session_t *sess)
 {
-  writen (sess->ctrl_fd, "220 (miniftpd 0.1)\r\n", strlen ("220 (miniftpd 0.1)\r\n"));
+  ftp_reply (sess, 220, "(miniftpd 0.1)");
   int ret;
   while (1)
     {
@@ -37,5 +41,40 @@ void handle_child (session_t *sess)
       //将命令转换为大写
       str_upper (sess->cmd);
       //处理FTP命令
+      if (strcmp ("USER", sess->cmd) == 0)
+        {
+          do_user (sess);
+        }
+      else if (strcmp ("PASS", sess->cmd) == 0)
+        {
+          do_pass (sess);
+        }
     }
+}
+
+void ftp_reply (session_t* sess, status, const char *text)
+{
+  char buf[1024] = {0};
+  sprintf (buf, "%d %s\r\n", status, text);
+  writen (sess->ctrl_fd,buf,strlen (buf));
+}
+
+static void do_user (session_t *sess)
+{
+  // USER s
+  struct passwd *pw = getpwnam (sess->arg);
+  if (pw == NULL)
+    {
+
+    }
+
+
+  ftp_reply (sess,331,"Please specify the passwd.");
+
+}
+
+static void do_pass (session_t *sess)
+{
+  write (sess->ctrl_fd, "230 Login successful.\r\n",
+         strlen ("230 Login successful.\r\n"));
 }

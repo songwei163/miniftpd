@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="miniftpd">
-				<Option output="/tmp/tmp.qQGCGXiSq4/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option output="/home/s/_my_work_/miniftpd/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -39,15 +39,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="miniftpd/fast">
-				<Option output="/tmp/tmp.qQGCGXiSq4/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option output="/home/s/_my_work_/miniftpd/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -57,75 +57,78 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd/fast"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/common.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/common.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/common.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/common.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/ftpproto.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/ftpcodes.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/ftpproto.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/ftpproto.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/main.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/ftpproto.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/parseconf.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/main.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/parseconf.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/parseconf.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/privparent.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/parseconf.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/privparent.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/privparent.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/session.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/privparent.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/session.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/session.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/str.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/session.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/str.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/str.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/sysutil.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/str.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/sysutil.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/sysutil.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/tunable.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/sysutil.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/tunable.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/tunable.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qQGCGXiSq4/CMakeLists.txt">
+		<Unit filename="/home/s/_my_work_/miniftpd/tunable.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/home/s/_my_work_/miniftpd/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

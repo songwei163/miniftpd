@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/tmp/tmp.qQGCGXiSq4/common.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/common.c.o"
-  "/tmp/tmp.qQGCGXiSq4/ftpproto.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/ftpproto.c.o"
-  "/tmp/tmp.qQGCGXiSq4/main.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/main.c.o"
-  "/tmp/tmp.qQGCGXiSq4/parseconf.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/parseconf.c.o"
-  "/tmp/tmp.qQGCGXiSq4/privparent.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/privparent.c.o"
-  "/tmp/tmp.qQGCGXiSq4/session.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/session.c.o"
-  "/tmp/tmp.qQGCGXiSq4/str.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/str.c.o"
-  "/tmp/tmp.qQGCGXiSq4/sysutil.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/sysutil.c.o"
-  "/tmp/tmp.qQGCGXiSq4/tunable.c" "/tmp/tmp.qQGCGXiSq4/cmake-build-debug/CMakeFiles/miniftpd.dir/tunable.c.o"
+  "/home/s/_my_work_/miniftpd/common.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/common.c.o"
+  "/home/s/_my_work_/miniftpd/ftpproto.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/ftpproto.c.o"
+  "/home/s/_my_work_/miniftpd/main.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/main.c.o"
+  "/home/s/_my_work_/miniftpd/parseconf.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/parseconf.c.o"
+  "/home/s/_my_work_/miniftpd/privparent.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/privparent.c.o"
+  "/home/s/_my_work_/miniftpd/session.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/session.c.o"
+  "/home/s/_my_work_/miniftpd/str.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/str.c.o"
+  "/home/s/_my_work_/miniftpd/sysutil.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/sysutil.c.o"
+  "/home/s/_my_work_/miniftpd/tunable.c" "/home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/tunable.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
