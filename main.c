@@ -33,7 +33,7 @@ int main (int argc, char *argv[])
 
 
 
-  parseconf_load_file ("miniftpd.conf");
+  parseconf_load_file (MINIFTP_CONF);
   printf ("tunable_pasv_enable = %u\n", tunable_pasv_enable);
   printf ("tunable_port_enable = %u\n", tunable_port_enable);
 
@@ -64,7 +64,7 @@ int main (int argc, char *argv[])
       exit (EXIT_FAILURE);
     }
 
-  int listenfd = tcp_server (NULL, 5188);
+  int listenfd = tcp_server (tunable_listen_address, tunable_listen_port);
 
   session_t sess = {
       /*控制连接套接字*/

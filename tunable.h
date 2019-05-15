@@ -5,13 +5,15 @@
 #ifndef _TUNABLE_H_
 #define _TUNABLE_H_
 
-extern int tunable_pasv_enable;
-extern int tunable_port_enable;
+#include "common.h"
+
+extern bool tunable_pasv_enable;
+extern bool tunable_port_enable;
 
 extern unsigned int tunable_listen_port;
 
 extern unsigned int tunable_max_clients;
-extern unsigned int tunable_max_per_ip;
+extern unsigned int  tunable_max_per_ip;
 
 extern unsigned int tunable_accept_timeout;
 extern unsigned int tunable_connect_timeout;

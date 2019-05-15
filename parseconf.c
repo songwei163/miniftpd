@@ -4,13 +4,11 @@
 
 //#include <bits/types/FILE.h>
 #include "parseconf.h"
-#include "tunable.h"
-#include "common.h"
-#include "str.h"
+
 
 static struct parseconf_bool_setting {
   const char *p_setting_name;
-  int *p_variable;
+  bool *p_variable;
 }
 
     parseconf_bool_array[] =
@@ -79,7 +77,7 @@ void paresconf_load_setting (const char *setting)
 {
   // ?????
   while (isspace(*setting))
-    setting++;
+    ++setting;
 
   char key[128] = {0};
   char value[128] = {0};
@@ -104,7 +102,7 @@ void paresconf_load_setting (const char *setting)
             return;
           }
 
-        p_str_setting++;
+        ++p_str_setting;
       }
   }
 
@@ -118,11 +116,11 @@ void paresconf_load_setting (const char *setting)
             if (strcmp (value, "YES") == 0
                 || strcmp (value, "TRUE") == 0
                 || strcmp (value, "1") == 0)
-              *(p_bool_setting->p_variable) = 1;
+              *(p_bool_setting->p_variable) = true;
             else if (strcmp (value, "NO") == 0
                      || strcmp (value, "FALSE") == 0
                      || strcmp (value, "0") == 0)
-              *(p_bool_setting->p_variable) = 0;
+              *(p_bool_setting->p_variable) = false;
             else
               {
                 fprintf (stderr, "bad bool value in config file for: %s\n", key);
@@ -132,7 +130,7 @@ void paresconf_load_setting (const char *setting)
             return;
           }
 
-        p_bool_setting++;
+        ++p_bool_setting;
       }
   }
 
@@ -150,7 +148,7 @@ void paresconf_load_setting (const char *setting)
             return;
           }
 
-        p_uint_setting++;
+        ++p_uint_setting;
       }
   }
 }
