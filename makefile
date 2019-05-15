@@ -2,8 +2,8 @@
 
 CC=gcc
 CFLAGS=-Wall -g
-BIN=minftpd
-OBJS=main.o sysutil.o common.o session.o ftpproto.o privparent.o str.o
+BIN=minfitpd
+OBJS=main.o sysutil.o common.o session.o ftpproto.o privparent.o str.o tunable.o parseconf.o
 
 $(BIN):$(OBJS)
 		$(CC) $(CFLAGS) $^ -o $@

@@ -5,20 +5,9 @@
       <paths name="Fedora (52adb571-ca1f-4a07-968f-b2af7b218870)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.qQGCGXiSq4" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/s/_my_work_/miniftpd" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-          </excludedPaths>
-        </serverdata>
-      </paths>
-      <paths name="Fedora (cb3d8ced-73ae-4736-9dcc-9e4bf21a6ead)">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/home/s/_my_work_/miniftpd" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
         </serverdata>
