@@ -15,6 +15,8 @@
 #include <fcntl.h>
 #include <libgen.h>
 #include <pwd.h>
+#include <shadow.h>
+#include <crypt.h>
 #include <sys/ioctl.h>
 #include <net/if.h>
 #include <net/if_arp.h>

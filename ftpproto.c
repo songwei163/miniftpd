@@ -3,14 +3,15 @@
 //
 
 #include "ftpproto.h"
+#include "ftpcodes.h"
 
-void ftp_reply (session_t* sess, status, const char *text);
+void ftp_reply (session_t *sess, int status, const char *text);
 static void do_user (session_t *sess);
 static void do_pass (session_t *sess);
 
 void handle_child (session_t *sess)
 {
-  ftp_reply (sess, 220, "(miniftpd 0.1)");
+  ftp_reply (sess, FTP_GREET, "(miniftpd 0.1)");
   int ret;
   while (1)
     {
@@ -52,11 +53,11 @@ void handle_child (session_t *sess)
     }
 }
 
-void ftp_reply (session_t* sess, status, const char *text)
+void ftp_reply (session_t *sess, int status, const char *text)
 {
   char buf[1024] = {0};
   sprintf (buf, "%d %s\r\n", status, text);
-  writen (sess->ctrl_fd,buf,strlen (buf));
+  writen (sess->ctrl_fd, buf, strlen (buf));
 }
 
 static void do_user (session_t *sess)
@@ -65,16 +66,46 @@ static void do_user (session_t *sess)
   struct passwd *pw = getpwnam (sess->arg);
   if (pw == NULL)
     {
-
+      //用户不存在
+      ftp_reply (sess, FTP_LOGINERR, "Login incorrect.");
+      return;
     }
-
-
-  ftp_reply (sess,331,"Please specify the passwd.");
+  sess->uid = pw->pw_uid;
+  ftp_reply (sess, FTP_GIVEPWORD, "Please specify the passwd.");
 
 }
 
 static void do_pass (session_t *sess)
 {
-  write (sess->ctrl_fd, "230 Login successful.\r\n",
-         strlen ("230 Login successful.\r\n"));
+  //PASS
+  struct passwd *pw = getpwuid (sess->uid);
+  if (pw == NULL)
+    {
+      //用户不存在
+      ftp_reply (sess, FTP_LOGINERR, "Login incorrect.");
+      return;
+    }
+
+    /*
+     * !!!!!!!
+     */
+  struct spwd *sp = getspnam (pw->pw_name);
+  if (sp == NULL)
+    {
+      ftp_reply (sess, FTP_LOGINERR, "Login incorrect.");
+      return;
+
+    }
+
+  //将明文进行加密，将加密的结果与阴影文件中的已经加密过的密码比对
+  char *encrypted_pass = crypt (sess->arg, sp->sp_pwdp);
+  if (strcmp (encrypted_pass, sp->sp_pwdp) != 0)
+    {
+      ftp_reply (sess, FTP_LOGINERR, "Login incorrect.");
+    }
+
+  //getspnam ()
+
+  ftp_reply (sess, FTP_LOGINOK, "Login successful.");
+
 }

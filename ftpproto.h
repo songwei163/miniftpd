@@ -8,6 +8,7 @@
 #include "session.h"
 #include "sysutil.h"
 #include "str.h"
+#include "common.h"
 
 void handle_child (session_t *sess);
 

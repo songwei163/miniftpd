@@ -68,7 +68,7 @@ int main (int argc, char *argv[])
 
   session_t sess = {
       /*控制连接套接字*/
-      -1,
+      0,-1,
       /*控制连接*/
       "", "", "",
       /*父子进程通道*/

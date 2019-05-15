@@ -7,25 +7,9 @@
 #include "ftpproto.h"
 #include "privparent.h"
 
-
 void begin_session (session_t *sess)
 {
-  struct passwd *pw = getpwnam ("nobody");
-  if (pw == NULL)
-    {
-      return;
-    }
-  else
-    {
-      if ((setegid (pw->pw_gid)) < 0)
-        {
-          ERR_EXIT ("setegid");
-        }
-      if ((seteuid (pw->pw_uid)) < 0)
-        {
-          ERR_EXIT ("seteuid");
-        }
-    }
+
 
   /*本地进程通信,创建一对UNIX本地域套接字*/
   int sockfds[2];
@@ -43,13 +27,29 @@ void begin_session (session_t *sess)
 
   if (pid == 0)
     {
-      //ftp服务进程
+      //ftp服务进程 root权限 ---> shadow
       close (sockfds[0]);
       sess->child_fd = sockfds[1];
       handle_child (sess);
     }
   else
     {
+      struct passwd *pw = getpwnam ("nobody");
+      if (pw == NULL)
+        {
+          return;
+        }
+      else
+        {
+          if ((setegid (pw->pw_gid)) < 0)
+            {
+              ERR_EXIT ("setegid");
+            }
+          if ((seteuid (pw->pw_uid)) < 0)
+            {
+              ERR_EXIT ("seteuid");
+            }
+        }
       //nobody进程
       close (sockfds[1]);
       sess->parent_fd = sockfds[0];
