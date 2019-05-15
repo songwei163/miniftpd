@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="miniftpd"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="miniftpd">
+				<Option output="/tmp/tmp.qQGCGXiSq4/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="miniftpd/fast">
+				<Option output="/tmp/tmp.qQGCGXiSq4/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/tmp/tmp.qQGCGXiSq4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qQGCGXiSq4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/common.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/common.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/ftpproto.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/ftpproto.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/main.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/parseconf.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/parseconf.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/privparent.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/privparent.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/session.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/session.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/str.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/str.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/sysutil.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/sysutil.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/tunable.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/tunable.h">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.qQGCGXiSq4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -4,10 +4,6 @@
 
 #include "ftpproto.h"
 
-/**
- *
- * @param sess
- */
 void handle_child (session_t *sess)
 {
   writen (sess->ctrl_fd, "220 (miniftpd 0.1)\r\n", strlen ("220 (miniftpd 0.1)\r\n"));
@@ -38,5 +34,8 @@ void handle_child (session_t *sess)
       //解析FTP命令与参数
       str_split (sess->cmdline, sess->cmd, sess->arg, ' ');
       printf ("cmd=[%s] arg=[%s]\n", sess->cmd, sess->arg);
+      //将命令转换为大写
+      str_upper (sess->cmd);
+      //处理FTP命令
     }
 }
