@@ -4,10 +4,11 @@
 #include "str.h"
 #include "parseconf.h"
 #include "tunable.h"
+#include "ftpproto.h"
 
 int main (int argc, char *argv[])
 {
-
+  list_common ();
 
 
   /*字符串模块测试
@@ -68,11 +69,11 @@ int main (int argc, char *argv[])
 
   session_t sess = {
       /*控制连接套接字*/
-      0,-1,
+      0, -1,
       /*控制连接*/
       "", "", "",
       /*父子进程通道*/
-      -1, -1
+      -1, -1, false
   };
 
   int connfd = 0;
