@@ -8,7 +8,7 @@
 
 int main (int argc, char *argv[])
 {
-  list_common ();
+  //list_common ();
 
 
   /*字符串模块测试
@@ -68,12 +68,14 @@ int main (int argc, char *argv[])
   int listenfd = tcp_server (tunable_listen_address, tunable_listen_port);
 
   session_t sess = {
-      /*控制连接套接字*/
-      0, -1,
       /*控制连接*/
-      "", "", "",
+      0, -1, "", "", "",
+      /*数据连接*/
+      NULL, -1,
       /*父子进程通道*/
-      -1, -1, false
+      - 1, -1, false,
+      /*ftp协议状态*/
+      false
   };
 
   int connfd = 0;

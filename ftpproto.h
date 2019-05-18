@@ -10,9 +10,10 @@
 #include "str.h"
 #include "common.h"
 #include "ftpcodes.h"
+#include "tunable.h"
 
 void handle_child (session_t *sess);
-int list_common (void);
+//int list_common (void);
 
 
 #endif //_FTPPROTO_H_

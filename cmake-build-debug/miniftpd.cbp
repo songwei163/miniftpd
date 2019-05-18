@@ -8,134 +8,130 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/s/CLionProjects/miniftpd/cmake-build-debug"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/s/CLionProjects/miniftpd/cmake-build-debug"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="miniftpd">
-				<Option output="/home/s/CLionProjects/miniftpd/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/s/CLionProjects/miniftpd/cmake-build-debug"/>
+				<Option output="/home/s/_my_work_/miniftpd/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="miniftpd/fast">
-				<Option output="/home/s/CLionProjects/miniftpd/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/s/CLionProjects/miniftpd/cmake-build-debug"/>
+				<Option output="/home/s/_my_work_/miniftpd/cmake-build-debug/miniftpd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 miniftpd/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/s/CLionProjects/miniftpd/cmake-build-debug"/>
+				<Option working_dir="/home/s/_my_work_/miniftpd/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/s/CLionProjects/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/home/s/_my_work_/miniftpd/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/s/CLionProjects/miniftpd/common.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/common.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/common.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/common.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/ftpcodes.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/ftpcodes.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/ftpproto.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/ftpproto.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/ftpproto.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/ftpproto.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/main.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/main.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/miniftpd.conf">
+		<Unit filename="/home/s/_my_work_/miniftpd/miniftpd.conf">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/parseconf.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/parseconf.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/parseconf.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/parseconf.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/privparent.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/privparent.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/privparent.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/privparent.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/session.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/session.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/session.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/session.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/str.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/str.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/str.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/str.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/sysutil.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/sysutil.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/sysutil.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/sysutil.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/tunable.c">
+		<Unit filename="/home/s/_my_work_/miniftpd/tunable.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/tunable.h">
+		<Unit filename="/home/s/_my_work_/miniftpd/tunable.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/CMakeLists.txt">
+		<Unit filename="/home/s/_my_work_/miniftpd/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

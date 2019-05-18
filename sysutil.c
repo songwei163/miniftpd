@@ -4,6 +4,44 @@
 
 #include "sysutil.h"
 
+/**
+ *
+ * @param port
+ * @return
+ */
+
+int tcp_client (unsigned short port)
+{
+  int sock = 0;
+  if ((sock = socket (AF_INET, SOCK_STREAM, 0)) == -1)
+    {
+      ERR_EXIT ("tcp client");
+    }
+
+  if (port > 0)
+    {
+      char ip[16] = {0};
+      getlocalip (ip);
+      struct sockaddr_in localaddr;
+      memset (&localaddr, 0, sizeof (localaddr));
+      localaddr.sin_family = AF_INET;
+      localaddr.sin_port = htons (port);
+      inet_pton (AF_INET, ip, &localaddr.sin_addr);
+      /*设置socket重用*/
+      int on = 1;
+      if ((setsockopt (sock, SOL_SOCKET, SO_REUSEADDR, (const char *) &on, sizeof (on))) == -1)
+        {
+          ERR_EXIT ("setsockopt");
+        }
+
+      if (bind (sock, (struct sockaddr *) &localaddr, sizeof (localaddr)) == -1)
+        {
+          ERR_EXIT ("bind");
+        }
+    }
+    return sock;
+}
+
 /*
  * tcp_server：
  * @host: 服务器IP地址或者服务器主机名
@@ -52,7 +90,6 @@ int tcp_server (const char *host, unsigned short port)
   if (bind (listenfd, (struct sockaddr *) &servaddr, sizeof (servaddr)) == -1)
     {
       ERR_EXIT ("bind");
-
     }
 
   if (listen (listenfd, SOMAXCONN) == -1)

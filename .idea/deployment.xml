@@ -2,13 +2,12 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="Fedora (52adb571-ca1f-4a07-968f-b2af7b218870)">
+      <paths name="Fedora (770e6a13-6e50-445c-b487-409136283da7)">
         <serverdata>
           <mappings>
             <mapping deploy="/home/s/_my_work_/miniftpd" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
         </serverdata>
