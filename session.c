@@ -6,7 +6,7 @@
 #include "session.h"
 #include "ftpproto.h"
 #include "privparent.h"
-//#include "privsock.h"
+#include "privsock.h"
 #include "sysutil.h"
 
 void begin_session (session_t *sess)
@@ -26,8 +26,7 @@ void begin_session (session_t *sess)
     {
       ERR_EXIT ("fork");
     }
-
-  if (pid == 0)
+  else if (pid == 0)
     {
       //ftp服务进程 root权限 ---> shadow
       close (sockfds[0]);
@@ -43,6 +42,7 @@ void begin_session (session_t *sess)
         }
       else
         {
+          //nobody进程
           if ((setegid (pw->pw_gid)) < 0)
             {
               ERR_EXIT ("setegid");
@@ -52,7 +52,7 @@ void begin_session (session_t *sess)
               ERR_EXIT ("seteuid");
             }
         }
-      //nobody进程
+
       close (sockfds[1]);
       sess->parent_fd = sockfds[0];
       handle_parent (sess);

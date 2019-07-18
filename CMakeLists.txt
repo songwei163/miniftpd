@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(miniftpd C)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 
 add_executable(miniftpd
         main.c
@@ -15,5 +15,6 @@ add_executable(miniftpd
         str.c           str.h
         tunable.c       tunable.h
         parseconf.c     parseconf.h
-        )
+        privsock.c      privsock.h)
+
 target_link_libraries(miniftpd crypt)

@@ -3,7 +3,7 @@
 //
 
 #include "privparent.h"
-//#include "privsock.h"
+#include "privsock.h"
 #include "sysutil.h"
 #include "tunable.h"
 

@@ -231,6 +231,33 @@ privparent.c.s:
 	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privparent.c.s
 .PHONY : privparent.c.s
 
+privsock.o: privsock.c.o
+
+.PHONY : privsock.o
+
+# target to build an object file
+privsock.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privsock.c.o
+.PHONY : privsock.c.o
+
+privsock.i: privsock.c.i
+
+.PHONY : privsock.i
+
+# target to preprocess a source file
+privsock.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privsock.c.i
+.PHONY : privsock.c.i
+
+privsock.s: privsock.c.s
+
+.PHONY : privsock.s
+
+# target to generate assembly for a file
+privsock.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privsock.c.s
+.PHONY : privsock.c.s
+
 session.o: session.c.o
 
 .PHONY : session.o
@@ -360,6 +387,9 @@ help:
 	@echo "... privparent.o"
 	@echo "... privparent.i"
 	@echo "... privparent.s"
+	@echo "... privsock.o"
+	@echo "... privsock.i"
+	@echo "... privsock.s"
 	@echo "... session.o"
 	@echo "... session.i"
 	@echo "... session.s"

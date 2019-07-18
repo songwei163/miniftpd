@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/s/CLionProjects/miniftpd/main.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/main.c.o"
   "/home/s/CLionProjects/miniftpd/parseconf.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/parseconf.c.o"
   "/home/s/CLionProjects/miniftpd/privparent.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/privparent.c.o"
+  "/home/s/CLionProjects/miniftpd/privsock.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/privsock.c.o"
   "/home/s/CLionProjects/miniftpd/session.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/session.c.o"
   "/home/s/CLionProjects/miniftpd/str.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/str.c.o"
   "/home/s/CLionProjects/miniftpd/sysutil.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/sysutil.c.o"

@@ -15,7 +15,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#include<signal.h>
+#include <signal.h>
 #include <sys/time.h>
 #include <libgen.h>
 #include <net/if.h>
@@ -44,6 +44,7 @@
 #define MAX_COMMAND_LINE 1024
 #define MAX_COMMAND 32
 #define MAX_ARG 1024
+#define MAX_BUFFER_SIZE 1024
 
 #define MINIFTP_CONF "miniftpd.conf"
 #endif //_COMMON_H_

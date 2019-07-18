@@ -20,6 +20,7 @@ typedef struct session {
     //数据连接
     struct sockaddr_in *port_addr;
     int data_fd;
+    int pasv_listen_fd;
 
     //父子进程通道
     int parent_fd;

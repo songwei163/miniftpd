@@ -30,60 +30,38 @@ int tcp_client (unsigned short port)
 
       if (bind (sock, (struct sockaddr *) &localaddr, sizeof (localaddr)) == -1)
         {
+          //printf("\\\\n");
           ERR_EXIT ("bind");
         }
     }
   return sock;
 }
 
-int tcp_server (const char *host, unsigned short port)
+
+int tcp_server(const char *host, unsigned short port)
 {
-  int listenfd = 0;
-  if ((listenfd = socket (AF_INET, SOCK_STREAM, 0)) == -1)
-    {
-      ERR_EXIT ("tcp server");
-    }
+  int listenfd;
+  if ((listenfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+    ERR_EXIT("tcp_server");
 
   struct sockaddr_in servaddr;
-  memset (&servaddr, 0, sizeof (servaddr));
+  memset(&servaddr, 0, sizeof(servaddr));
   servaddr.sin_family = AF_INET;
-  if (host != NULL)
-    {
-      /*host为主机名*/
-      if (inet_aton (host, &servaddr.sin_addr) == 0)
-        {
-          struct hostent *hp;
-          hp = gethostbyname (host);
-          if (hp == NULL)
-            {
-              ERR_EXIT ("gethostbyname");
-            }
-          servaddr.sin_addr = *(struct in_addr *) hp->h_addr;
-        }
-    }
+  if(host != NULL) //HOST == IP
+    servaddr.sin_addr.s_addr = inet_addr(host);
   else
-    {
-      servaddr.sin_addr.s_addr = htonl (INADDR_ANY);
-    }
+    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+  servaddr.sin_port = htons(port);
 
-  servaddr.sin_port = htons (port);
-
-  /*设置socket重用*/
   int on = 1;
-  if ((setsockopt (listenfd, SOL_SOCKET, SO_REUSEADDR, (const char *) &on, sizeof (on))) == -1)
-    {
-      ERR_EXIT ("gethostbyname");
-    }
+  if ((setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, (const char*)&on, sizeof(on))) < 0)
+    ERR_EXIT("setsockopt");
 
-  if (bind (listenfd, (struct sockaddr *) &servaddr, sizeof (servaddr)) == -1)
-    {
-      ERR_EXIT ("bind");
-    }
+  if (bind(listenfd, (struct sockaddr*)&servaddr, sizeof(servaddr)) < 0)
+    ERR_EXIT("bind");
 
-  if (listen (listenfd, SOMAXCONN) == -1)
-    {
-      ERR_EXIT ("listen");
-    }
+  if (listen(listenfd, SOMAXCONN) < 0)
+    ERR_EXIT("listen");
 
   return listenfd;
 }

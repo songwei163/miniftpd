@@ -108,6 +108,12 @@
 		<Unit filename="/home/s/CLionProjects/miniftpd/privparent.h">
 			<Option target="miniftpd"/>
 		</Unit>
+		<Unit filename="/home/s/CLionProjects/miniftpd/privsock.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/home/s/CLionProjects/miniftpd/privsock.h">
+			<Option target="miniftpd"/>
+		</Unit>
 		<Unit filename="/home/s/CLionProjects/miniftpd/session.c">
 			<Option target="miniftpd"/>
 		</Unit>

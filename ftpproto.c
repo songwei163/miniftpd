@@ -7,7 +7,7 @@
 #include "str.h"
 #include "ftpcodes.h"
 #include "tunable.h"
-//#include "privsock.h"
+#include "privsock.h"
 
 void ftp_reply (session_t *sess, int status, const char *text);
 void ftp_lreply (session_t *sess, int status, const char *text);
@@ -122,7 +122,7 @@ void handle_child (session_t *sess)
           exit (EXIT_SUCCESS);
         }
 
-      printf ("cmdline=[%s]\n", sess->cmdline);
+      //printf ("cmdline=[%s]\n", sess->cmdline);
       //去除\r\n
       str_trim_crlf (sess->cmdline);
       printf ("cmdline=[%s]\n", sess->cmdline);
@@ -337,40 +337,69 @@ bool port_active (session_t *sess)
 
 bool pasv_active (session_t *sess)
 {
+  if (sess->pasv_listen_fd != -1)
+    return true;
   return false;
+
 }
 
 bool get_transfer_fd (session_t *sess)
 {
-  //检测是否收到PORT命令或PASV命令
   if (!port_active (sess) && !pasv_active (sess))
     {
+      //425 Use PORT or PASV first
+      ftp_reply (sess, FTP_BADSENDCONN, "Use PORT or PASV first");
       return 0;
     }
 
-  //主动模式
+  if (port_active (sess) && pasv_active (sess))
+    {
+      //425 PORT both PASV active.
+      ftp_reply (sess, FTP_BADSENDCONN, "PORT both PASV active.");
+      return 0;
+    }
+
+  int datafd;
   if (port_active (sess))
     {
-      /*
-       * nobody
-       */
-      // sess->data_fd =tcp_client (0);
-      int fd = tcp_client (0);
-      if (connect_timeout (sess->data_fd, sess->port_addr, tunable_connect_timeout) < 0)
-        {
-          close (fd);
-          return 0;
-        }
-      sess->data_fd = fd;
 
-      //socket (AF_INET,SOCK_STREAM,0)
+      if ((datafd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
+        return 0;
+      socklen_t addrlen = sizeof (struct sockaddr);
+
+      /*
+      struct sockaddr_in address;
+      address.sin_family = AF_INET;
+      address.sin_port = htons(20);
+      address.sin_addr.s_addr = INADDR_ANY;
+
+      if(bind(datafd, (struct sockaddr*)&address, addrlen) < 0)
+          ERR_EXIT("bind 20");
+      */
+
+      if (connect (datafd, (struct sockaddr *) sess->port_addr, addrlen) < 0)
+        return 0;
+
     }
-  if (sess->port_addr != NULL)
+
+  if (pasv_active (sess))
+    {
+      struct sockaddr_in addrcli;
+      socklen_t addrlen = sizeof (addrcli);
+      if ((datafd = accept (sess->pasv_listen_fd, (struct sockaddr *) &addrcli, &addrlen)) < 0)
+        return 0;
+      close (sess->pasv_listen_fd);
+      sess->pasv_listen_fd = -1;
+    }
+  sess->data_fd = datafd;
+
+  if (sess->port_addr)
     {
       free (sess->port_addr);
-      sess->port_addr = NULL;
+      sess->port_addr = 0;
     }
-  return true;
+
+  return 1;
 
 }
 
@@ -462,7 +491,31 @@ static void do_port (session_t *sess)
 }
 
 static void do_pasv (session_t *sess)
-{}
+{
+  char ip[16] = {0};
+  getlocalip (ip);
+  int sockfd = tcp_server (ip, 0);
+
+  struct sockaddr_in address;
+  socklen_t addrlen = sizeof (address);
+  if (getsockname (sockfd, (struct sockaddr *) &address, &addrlen) < 0)
+    ERR_EXIT("getsockname");
+
+  //printf("ip = %s\n", inet_ntoa(addr.sin_addr));
+  //printf("port = %d\n",ntohs(addr.sin_port));
+  unsigned short port = ntohs (address.sin_port);
+  unsigned char addr[6] = {0};
+  sscanf (ip, "%hhu.%hhu.%hhu.%hhu", &addr[0], &addr[1], &addr[2], &addr[3]);
+  addr[4] = ((port >> 8) & 0x00ff);
+  addr[5] = port & 0x00ff;
+
+  char buf[MAX_BUFFER_SIZE] = {0};
+  sprintf (buf, "Entering Passive Mode (%u,%u,%u,%u,%u,%u)", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+  //port = 8080
+  //227 Entering Passive Mode (192,168,0,200,76,240).
+  sess->pasv_listen_fd = sockfd;
+  ftp_reply (sess, FTP_PASVOK, buf);
+}
 
 static void do_type (session_t *sess)
 {
@@ -502,8 +555,10 @@ static void do_list (session_t *sess)
   //创建数据连接
   if (get_transfer_fd (sess) == 0)
     {
+      //printf ("0\n");
       return;
     }
+  //printf ("1\n");
 
   //150
   ftp_reply (sess, FTP_DATACONN, "Here comes the directory listing.");
@@ -514,6 +569,18 @@ static void do_list (session_t *sess)
   //226
   ftp_reply (sess, FTP_TRANSFEROK, "Directory send OK.");
 
+  /*
+3、	客户端向服务器端发送LIST
+    服务器端检测在收到LIST命令之前是否接收过PORT或PASV命令
+    如果没有接受过，则响应425Use PORT or PASV first
+    如果有接收过，并且是PORT，则服务器端创建数据套接字(bind 20端口)，
+    调用connect主动连接客户端IP与端口，从而建立数据连接
+
+4、	服务器发送150应答给客户端，表示准备就绪，可以开始传输了
+5、	开始传输列表
+6、	服务器发送226应答给客户端，表示数据传输结束
+传输结束，服务器端主动关闭数据套接字
+*/
 }
 
 static void do_nlst (session_t *sess)
@@ -531,6 +598,7 @@ static void do_pwd (session_t *sess)
   char dir[1024 + 1] = {0};
   getcwd (dir, 1024);
   sprintf (text, "\"%s\"", dir);
+  printf ("\"%s\"", text);
   ftp_reply (sess, FTP_PWDOK, text);
 }
 
@@ -554,7 +622,17 @@ static void do_site (session_t *sess)
 
 static void do_syst (session_t *sess)
 {
-  ftp_reply (sess, FTP_SYSTOK, "UNIX Type: L8");
+  ftp_reply (sess, FTP_SYSTOK, "UNIX Type: L8");     //ftp_reply(sess, FTP_FEAT, "-Features:");
+  writen (sess->ctrl_fd, "211-Features:\r\n", strlen ("211-Features:\r\n"));
+  writen (sess->ctrl_fd, "EPRT\r\n", strlen ("EPRT\r\n"));
+  writen (sess->ctrl_fd, "EPSV\r\n", strlen ("EPSV\r\n"));
+  writen (sess->ctrl_fd, "MDTM\r\n", strlen ("MDTM\r\n"));
+  writen (sess->ctrl_fd, "PASV\r\n", strlen ("PASV\r\n"));
+  writen (sess->ctrl_fd, "REST STREAM\r\n", strlen ("REST STREAM\r\n"));
+  writen (sess->ctrl_fd, "SIZE\r\n", strlen ("SIZE\r\n"));
+  writen (sess->ctrl_fd, "TVFS\r\n", strlen ("TVFS\r\n"));
+  writen (sess->ctrl_fd, "UTF8\r\n", strlen ("UTF8\r\n"));
+  ftp_reply (sess, FTP_FEAT, "end");
 }
 
 static void do_feat (session_t *sess)
