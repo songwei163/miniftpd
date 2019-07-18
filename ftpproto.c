@@ -8,7 +8,8 @@ void ftp_reply (session_t *sess, int status, const char *text);
 void ftp_lreply (session_t *sess, int status, const char *text);
 
 int list_common (session_t *sess);
-
+bool port_active (session_t *sess);
+bool pasv_active (session_t *sess);
 bool get_transfer_fd (session_t *sess);
 
 static void do_user (session_t *sess);
@@ -43,56 +44,56 @@ static void do_noop (session_t *sess);
 static void do_help (session_t *sess);
 
 typedef struct ftpcmd {
-  const char *cmd;
-  void (*cmd_handler) (session_t *sess);
+    const char *cmd;
+    void (*cmd_handler) (session_t *sess);
 } ftpcmd_t;
 
 static ftpcmd_t ctrl_cmds[] = {
     /* 访问控制命令 */
-    {"USER", do_user},
-    {"PASS", do_pass},
-    {"CWD", do_cwd},
-    {"XCWD", do_cwd},
-    {"CDUP", do_cdup},
-    {"XCUP", do_cdup},
-    {"QUIT", do_quit},
-    {"ACCT", NULL},
-    {"SMNT", NULL},
-    {"REIN", NULL},
+    {"USER",                 do_user},
+    {"PASS",                 do_pass},
+    {"CWD",                  do_cwd},
+    {"XCWD",                 do_cwd},
+    {"CDUP",                 do_cdup},
+    {"XCUP",                 do_cdup},
+    {"QUIT",                 do_quit},
+    {"ACCT",               NULL},
+    {"SMNT",               NULL},
+    {"REIN",               NULL},
     /* 传输参数命令 */
-    {"PORT", do_port},
-    {"PASV", do_pasv},
-    {"TYPE", do_type},
+    {"PORT",                 do_port},
+    {"PASV",                 do_pasv},
+    {"TYPE",                 do_type},
     {"STRU",    /*do_stru*/NULL},
     {"MODE",    /*do_mode*/NULL},
 
     /* 服务命令 */
-    {"RETR", do_retr},
-    {"STOR", do_stor},
-    {"APPE", do_appe},
-    {"LIST", do_list},
-    {"NLST", do_nlst},
-    {"REST", do_rest},
-    {"ABOR", do_abor},
+    {"RETR",                 do_retr},
+    {"STOR",                 do_stor},
+    {"APPE",                 do_appe},
+    {"LIST",                 do_list},
+    {"NLST",                 do_nlst},
+    {"REST",                 do_rest},
+    {"ABOR",                 do_abor},
     {"\377\364\377\362ABOR", do_abor},
-    {"PWD", do_pwd},
-    {"XPWD", do_pwd},
-    {"MKD", do_mkd},
-    {"XMKD", do_mkd},
-    {"RMD", do_rmd},
-    {"XRMD", do_rmd},
-    {"DELE", do_dele},
-    {"RNFR", do_rnfr},
-    {"RNTO", do_rnto},
-    {"SITE", do_site},
-    {"SYST", do_syst},
-    {"FEAT", do_feat},
-    {"SIZE", do_size},
-    {"STAT", do_stat},
-    {"NOOP", do_noop},
-    {"HELP", do_help},
-    {"STOU", NULL},
-    {"ALLO", NULL}
+    {"PWD",                  do_pwd},
+    {"XPWD",                 do_pwd},
+    {"MKD",                  do_mkd},
+    {"XMKD",                 do_mkd},
+    {"RMD",                  do_rmd},
+    {"XRMD",                 do_rmd},
+    {"DELE",                 do_dele},
+    {"RNFR",                 do_rnfr},
+    {"RNTO",                 do_rnto},
+    {"SITE",                 do_site},
+    {"SYST",                 do_syst},
+    {"FEAT",                 do_feat},
+    {"SIZE",                 do_size},
+    {"STAT",                 do_stat},
+    {"NOOP",                 do_noop},
+    {"HELP",                 do_help},
+    {"STOU",               NULL},
+    {"ALLO",               NULL}
 };
 
 void handle_child (session_t *sess)
@@ -205,19 +206,26 @@ int list_common (session_t *sess)
           mode_t mode = stbuf.st_mode;
           switch (mode & S_IFMT)
             {
-          case S_IFREG:perms[0] = '-';
+              case S_IFREG:
+                perms[0] = '-';
               break;
-          case S_IFDIR:perms[0] = 'd';
+              case S_IFDIR:
+                perms[0] = 'd';
               break;
-          case S_IFLNK:perms[0] = 'l';
+              case S_IFLNK:
+                perms[0] = 'l';
               break;
-          case S_IFIFO:perms[0] = 'p';
+              case S_IFIFO:
+                perms[0] = 'p';
               break;
-          case S_IFSOCK:perms[0] = 's';
+              case S_IFSOCK:
+                perms[0] = 's';
               break;
-          case S_IFCHR:perms[0] = 'c';
+              case S_IFCHR:
+                perms[0] = 'c';
               break;
-          case S_IFBLK:perms[0] = 'b';
+              case S_IFBLK:
+                perms[0] = 'b';
               break;
             }
 
@@ -313,6 +321,54 @@ int list_common (session_t *sess)
   return 1;
 }
 
+bool port_active (session_t *sess)
+{
+  if (sess->port_addr)
+    {
+      return true;
+    }
+  return false;
+}
+
+bool pasv_active (session_t *sess)
+{
+  return false;
+}
+
+bool get_transfer_fd (session_t *sess)
+{
+  //检测是否收到PORT命令或PASV命令
+  if (!port_active (sess) && !pasv_active (sess))
+    {
+      return 0;
+    }
+
+  //主动模式
+  if (port_active (sess))
+    {
+      /*
+       * nobody
+       */
+      // sess->data_fd =tcp_client (0);
+      int fd = tcp_client (0);
+      if (connect_timeout (sess->data_fd, sess->port_addr, tunable_connect_timeout) < 0)
+        {
+          close (fd);
+          return 0;
+        }
+      sess->data_fd = fd;
+
+      //socket (AF_INET,SOCK_STREAM,0)
+    }
+  if (sess->port_addr != NULL)
+    {
+      free (sess->port_addr);
+      sess->port_addr = NULL;
+    }
+  return true;
+
+}
+
 static void do_user (session_t *sess)
 {
   // USER s
@@ -369,11 +425,14 @@ static void do_pass (session_t *sess)
 }
 
 static void do_cwd (session_t *sess)
-{ }
+{}
+
 static void do_cdup (session_t *sess)
-{ }
+{}
+
 static void do_quit (session_t *sess)
-{ }
+{}
+
 static void do_port (session_t *sess)
 {
   //PORT
@@ -396,8 +455,10 @@ static void do_port (session_t *sess)
   ftp_reply (sess, FTP_PORTOK, "PORT command successful.Consider using PASV.");
 
 }
+
 static void do_pasv (session_t *sess)
-{ }
+{}
+
 static void do_type (session_t *sess)
 {
   if (strcmp (sess->arg, "A") == 0)
@@ -415,16 +476,22 @@ static void do_type (session_t *sess)
       ftp_reply (sess, FTP_BADCMD, "Unrecognized Type command.");
     }
 }
+
 static void do_stru (session_t *sess)
-{ }
+{}
+
 static void do_mode (session_t *sess)
-{ }
+{}
+
 static void do_retr (session_t *sess)
-{ }
+{}
+
 static void do_stor (session_t *sess)
-{ }
+{}
+
 static void do_appe (session_t *sess)
-{ }
+{}
+
 static void do_list (session_t *sess)
 {
   //创建数据连接
@@ -444,57 +511,15 @@ static void do_list (session_t *sess)
 
 }
 
-bool port_active (session_t *sess)
-{
-  if (sess->port_addr)
-    {
-      return true;
-    }
-  return false;
-}
-bool pasv_active (session_t *sess)
-{
-  return false;
-}
-bool get_transfer_fd (session_t *sess)
-{
-  //检测是否收到PORT命令或PASV命令
-  if (!port_active (sess) && !pasv_active (sess))
-    {
-      return 0;
-    }
-
-  //主动模式
-  if (port_active (sess))
-    {
-      /*
-       * nobody
-       */
-      // sess->data_fd =tcp_client (0);
-      int fd = tcp_client (0);
-      if (connect_timeout (sess->data_fd, sess->port_addr, tunable_connect_timeout) < 0)
-        {
-          close (fd);
-          return 0;
-        }
-      sess->data_fd = fd;
-
-      //socket (AF_INET,SOCK_STREAM,0)
-    }
-  if (sess->port_addr != NULL)
-    {
-      free (sess->port_addr);
-      sess->port_addr = NULL;
-    }
-  return true;
-
-}
 static void do_nlst (session_t *sess)
-{ }
+{}
+
 static void do_rest (session_t *sess)
-{ }
+{}
+
 static void do_abor (session_t *sess)
-{ }
+{}
+
 static void do_pwd (session_t *sess)
 {
   char text[1024 + 3] = {0};
@@ -503,22 +528,30 @@ static void do_pwd (session_t *sess)
   sprintf (text, "\"%s\"", dir);
   ftp_reply (sess, FTP_PWDOK, text);
 }
+
 static void do_mkd (session_t *sess)
-{ }
+{}
+
 static void do_rmd (session_t *sess)
-{ }
+{}
+
 static void do_dele (session_t *sess)
-{ }
+{}
+
 static void do_rnfr (session_t *sess)
-{ }
+{}
+
 static void do_rnto (session_t *sess)
-{ }
+{}
+
 static void do_site (session_t *sess)
-{ }
+{}
+
 static void do_syst (session_t *sess)
 {
   ftp_reply (sess, FTP_SYSTOK, "UNIX Type: L8");
 }
+
 static void do_feat (session_t *sess)
 {
   ftp_lreply (sess, FTP_FEAT, "Features:");
@@ -532,11 +565,15 @@ static void do_feat (session_t *sess)
   writen (sess->ctrl_fd, " UTF8\r\n", strlen (" UTF8\r\n"));
   ftp_reply (sess, FTP_FEAT, "End");
 }
+
 static void do_size (session_t *sess)
-{ }
+{}
+
 static void do_stat (session_t *sess)
-{ }
+{}
+
 static void do_noop (session_t *sess)
-{ }
+{}
+
 static void do_help (session_t *sess)
-{ }
+{}

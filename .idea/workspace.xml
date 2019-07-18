@@ -12,14 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="130b391e-bae1-4d30-8e1a-86d7029c1c85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeCCompiler.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/a.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
@@ -28,9 +27,7 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/miniftpd.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/miniftpd.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/miniftpd.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/miniftpd.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/miniftpd.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/miniftpd.dir/cmake_clean.cmake" afterDir="false" />
@@ -42,12 +39,17 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/miniftpd.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/miniftpd.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ftpproto.c" beforeDir="false" afterPath="$PROJECT_DIR$/ftpproto.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ftpproto.h" beforeDir="false" afterPath="$PROJECT_DIR$/ftpproto.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniftpd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/miniftpd.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parseconf.h" beforeDir="false" afterPath="$PROJECT_DIR$/parseconf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privparent.h" beforeDir="false" afterPath="$PROJECT_DIR$/privparent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/session.h" beforeDir="false" afterPath="$PROJECT_DIR$/session.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sysutil.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysutil.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sysutil.h" beforeDir="false" afterPath="$PROJECT_DIR$/sysutil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunable.c" beforeDir="false" afterPath="$PROJECT_DIR$/tunable.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tunable.h" beforeDir="false" afterPath="$PROJECT_DIR$/tunable.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,70 +69,64 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="77" column="11" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ftpproto.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="457" column="1" selection-start-line="457" selection-start-column="1" selection-end-line="457" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/session.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.CLion2019.1/system/.remote/192.168.56.101_22/770e6a13-6e50-445c-b487-409136283da7/usr/include/netinet/in.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniftpd.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ftpproto.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+            <state relative-caret-position="154">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding>
-                <element signature="e#78#98#0" expanded="true" />
+                <element signature="e#0#2#0" />
+                <element signature="e#105#408#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common.h">
+        <entry file="file://$PROJECT_DIR$/str.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="88">
+              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#73#210#0" />
+                <element signature="e#212#450#0" />
+                <element signature="e#452#610#0" />
+                <element signature="e#612#719#0" />
+                <element signature="e#721#1419#0" />
+                <element signature="e#927#1157#0" />
+                <element signature="e#1421#2262#0" />
+                <element signature="e#1474#1891#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/str.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#84#142#0" />
+                <element signature="e#175#283#0" />
+                <element signature="e#349#440#0" />
+                <element signature="e#478#527#0" />
+                <element signature="e#556#642#0" />
+                <element signature="e#688#784#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/privparent.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#60#204#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +134,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sysutil.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+            <state relative-caret-position="-198">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#57#841#0" />
+                <element signature="e#843#1983#0" />
+                <element signature="e#1985#2572#0" />
+                <element signature="e#2015#2259#0" />
+                <element signature="e#2574#2797#0" />
+                <element signature="e#2799#3025#0" />
+                <element signature="e#3027#3599#0" />
+                <element signature="e#3601#4178#0" />
+                <element signature="e#4180#5004#0" />
+                <element signature="e#4943#4987#0" />
+                <element signature="e#5006#6617#0" />
+                <element signature="e#6619#7032#0" />
+                <element signature="e#7034#7458#0" />
+                <element signature="e#7460#7667#0" />
+                <element signature="e#7669#8448#0" />
+                <element signature="e#8450#9162#0" />
+                <element signature="e#9164#9965#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,8 +163,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sysutil.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" selection-start-line="13" selection-end-line="14" />
+            <state>
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#2#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tunable.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tunable.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/privparent.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/session.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#2#0" />
+                <element signature="e#123#1028#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,22 +235,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/str.c" />
-        <option value="$PROJECT_DIR$/tunable.c" />
         <option value="$PROJECT_DIR$/parseconf.c" />
-        <option value="$PROJECT_DIR$/parseconf.h" />
-        <option value="$PROJECT_DIR$/tunable.h" />
         <option value="$PROJECT_DIR$/ftpcodes.h" />
-        <option value="$PROJECT_DIR$/miniftpd.conf" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/session.c" />
         <option value="$PROJECT_DIR$/common.h" />
-        <option value="$PROJECT_DIR$/sysutil.h" />
-        <option value="$PROJECT_DIR$/sysutil.c" />
-        <option value="$PROJECT_DIR$/session.h" />
         <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/ftpproto.h" />
         <option value="$PROJECT_DIR$/ftpproto.c" />
+        <option value="$PROJECT_DIR$/session.h" />
+        <option value="$PROJECT_DIR$/miniftpd.conf" />
+        <option value="$PROJECT_DIR$/sysutil.c" />
+        <option value="$PROJECT_DIR$/privparent.h" />
+        <option value="$PROJECT_DIR$/sysutil.h" />
+        <option value="$PROJECT_DIR$/tunable.c" />
+        <option value="$PROJECT_DIR$/tunable.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/ftpproto.h" />
+        <option value="$PROJECT_DIR$/parseconf.h" />
       </list>
     </option>
   </component>
@@ -275,6 +335,7 @@
       <workItem from="1558054856263" duration="41000" />
       <workItem from="1558059995242" duration="6000" />
       <workItem from="1558184454029" duration="2865000" />
+      <workItem from="1563433048264" duration="1166000" />
     </task>
     <task id="LOCAL-00001" summary="。。。。。">
       <created>1557900536224</created>
@@ -315,18 +376,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45311000" />
+    <option name="totallyTimeSpent" value="46477000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27345845" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27768502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32969433" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32928178" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -337,7 +398,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.28686327" />
       <window_info anchor="bottom" id="File Transfer" order="12" weight="0.3297587" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32841823" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32841823" />
       <window_info anchor="right" id="make" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -385,91 +446,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="验证密码,切换用户" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/privparent.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/privparent.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common.c">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/.CLion2019.1/system/.remote/192.168.56.101_22/52adb571-ca1f-4a07-968f-b2af7b218870/usr/include/bits/types/FILE.h" />
-    <entry file="file://$PROJECT_DIR$/tunable.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/miniftpd-master/miniftpd.conf" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/str.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/str.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding>
-            <element signature="e#35#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/unistd.h" />
     <entry file="file://$PROJECT_DIR$/makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ftpcodes.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2106">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parseconf.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/session.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parseconf.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding>
-            <element signature="e#82#102#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tunable.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -480,72 +463,256 @@
     <entry file="file:///usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h" />
     <entry file="file:///usr/include/x86_64-linux-gnu/bits/typesizes.h" />
     <entry file="file:///usr/include/x86_64-linux-gnu/bits/types.h" />
-    <entry file="file://$USER_HOME$/.CLion2019.1/system/.remote/192.168.56.101_22/770e6a13-6e50-445c-b487-409136283da7/usr/include/netinet/in.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-        </state>
-      </provider>
+    <entry file="file://$USER_HOME$/.CLion2019.1/system/.remote/192.168.56.101_22/770e6a13-6e50-445c-b487-409136283da7/usr/include/netinet/in.h" />
+    <entry file="file://$PROJECT_DIR$/common.c">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/miniftpd.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="200">
           <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sysutil.h">
+    <entry file="file://$PROJECT_DIR$/ftpcodes.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" selection-start-line="13" selection-end-line="14" />
+        <state relative-caret-position="527">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sysutil.c">
+    <entry file="file://$PROJECT_DIR$/ftpproto.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="77" column="11" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="11" />
+        <state relative-caret-position="520">
+          <caret line="386" column="37" selection-start-line="386" selection-start-column="37" selection-end-line="386" selection-end-column="37" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#2#0" />
+            <element signature="e#1511#1592#0" />
+            <element signature="e#3245#4924#0" />
+            <element signature="e#4108#4304#0" />
+            <element signature="e#4926#5106#0" />
+            <element signature="e#5108#5287#0" />
+            <element signature="e#5289#9104#0" />
+            <element signature="e#9110#9214#0" />
+            <element signature="e#9220#9270#0" />
+            <element signature="e#9276#9906#0" />
+            <element signature="e#9463#9491#0" />
+            <element signature="e#9908#10213#0" />
+            <element signature="e#10215#10977#0" />
+            <element signature="e#10427#10448#0" />
+            <element signature="e#10979#11018#0" />
+            <element signature="e#11020#11060#0" />
+            <element signature="e#11062#11102#0" />
+            <element signature="e#11104#11713#0" />
+            <element signature="e#11715#11755#0" />
+            <element signature="e#11757#12172#0" />
+            <element signature="e#12174#12214#0" />
+            <element signature="e#12216#12256#0" />
+            <element signature="e#12258#12298#0" />
+            <element signature="e#12300#12340#0" />
+            <element signature="e#12342#12382#0" />
+            <element signature="e#12384#12712#0" />
+            <element signature="e#12714#12754#0" />
+            <element signature="e#12756#12796#0" />
+            <element signature="e#12798#12838#0" />
+            <element signature="e#12840#13029#0" />
+            <element signature="e#13031#13070#0" />
+            <element signature="e#13072#13111#0" />
+            <element signature="e#13113#13153#0" />
+            <element signature="e#13155#13195#0" />
+            <element signature="e#13197#13237#0" />
+            <element signature="e#13239#13279#0" />
+            <element signature="e#13281#13371#0" />
+            <element signature="e#13373#13997#0" />
+            <element signature="e#13999#14039#0" />
+            <element signature="e#14041#14081#0" />
+            <element signature="e#14083#14123#0" />
+            <element signature="e#14125#14165#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ftpproto.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        <state relative-caret-position="330">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#78#98#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/session.h">
+    <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+        <state relative-caret-position="44">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="e#146#2624#0" />
+            <element signature="e#206#646#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ftpproto.c">
+    <entry file="file://$PROJECT_DIR$/parseconf.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="457" column="1" selection-start-line="457" selection-start-column="1" selection-end-line="457" selection-end-column="1" />
+        <state relative-caret-position="176">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#100#183#1" />
+            <element signature="e#350#441#1" />
+            <element signature="e#1058#1147#1" />
+            <element signature="e#1265#1798#0" />
+            <element signature="e#1800#3973#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parseconf.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#82#102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privparent.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#60#204#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/privparent.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/session.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#123#1028#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/session.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#105#408#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/str.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#73#210#0" />
+            <element signature="e#212#450#0" />
+            <element signature="e#452#610#0" />
+            <element signature="e#612#719#0" />
+            <element signature="e#721#1419#0" />
+            <element signature="e#927#1157#0" />
+            <element signature="e#1421#2262#0" />
+            <element signature="e#1474#1891#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/str.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#84#142#0" />
+            <element signature="e#175#283#0" />
+            <element signature="e#349#440#0" />
+            <element signature="e#478#527#0" />
+            <element signature="e#556#642#0" />
+            <element signature="e#688#784#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysutil.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#57#841#0" />
+            <element signature="e#843#1983#0" />
+            <element signature="e#1985#2572#0" />
+            <element signature="e#2015#2259#0" />
+            <element signature="e#2574#2797#0" />
+            <element signature="e#2799#3025#0" />
+            <element signature="e#3027#3599#0" />
+            <element signature="e#3601#4178#0" />
+            <element signature="e#4180#5004#0" />
+            <element signature="e#4943#4987#0" />
+            <element signature="e#5006#6617#0" />
+            <element signature="e#6619#7032#0" />
+            <element signature="e#7034#7458#0" />
+            <element signature="e#7460#7667#0" />
+            <element signature="e#7669#8448#0" />
+            <element signature="e#8450#9162#0" />
+            <element signature="e#9164#9965#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysutil.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunable.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tunable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
         </state>
       </provider>
     </entry>

@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /opt/clion-2019.1.4/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /opt/clion-2019.1.4/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/s/_my_work_/miniftpd
+CMAKE_SOURCE_DIR = /home/s/CLionProjects/miniftpd
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/s/_my_work_/miniftpd/cmake-build-debug
+CMAKE_BINARY_DIR = /home/s/CLionProjects/miniftpd/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/s/_my_work_/miniftpd/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/clion-2019.1.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/opt/clion-2019.1.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles /home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles /home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/s/_my_work_/miniftpd/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,33 +122,6 @@ miniftpd: cmake_check_build_system
 miniftpd/fast:
 	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/build
 .PHONY : miniftpd/fast
-
-common.o: common.c.o
-
-.PHONY : common.o
-
-# target to build an object file
-common.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/common.c.o
-.PHONY : common.c.o
-
-common.i: common.c.i
-
-.PHONY : common.i
-
-# target to preprocess a source file
-common.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/common.c.i
-.PHONY : common.c.i
-
-common.s: common.c.s
-
-.PHONY : common.s
-
-# target to generate assembly for a file
-common.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/common.c.s
-.PHONY : common.c.s
 
 ftpproto.o: ftpproto.c.o
 
@@ -375,9 +348,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... miniftpd"
 	@echo "... edit_cache"
-	@echo "... common.o"
-	@echo "... common.i"
-	@echo "... common.s"
 	@echo "... ftpproto.o"
 	@echo "... ftpproto.i"
 	@echo "... ftpproto.s"

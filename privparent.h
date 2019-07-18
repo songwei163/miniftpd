@@ -8,10 +8,6 @@
 #include "session.h"
 #include "sysutil.h"
 
-/**
- *
- * @param sess
- */
 void handle_parent (session_t *sess);
 
 #endif //_PRIVPARENT_H_

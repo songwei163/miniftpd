@@ -4,7 +4,6 @@
 
 #include "tunable.h"
 
-
 bool tunable_pasv_enable = true;
 bool tunable_port_enable = true;
 unsigned int tunable_listen_port = 21;

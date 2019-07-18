@@ -12,5 +12,4 @@
 void parseconf_load_file(const char *path);
 void paresconf_load_setting(const char* setting);
 
-
 #endif //_PARSECONF_H_
