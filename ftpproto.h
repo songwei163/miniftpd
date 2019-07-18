@@ -6,11 +6,6 @@
 #define _FTPPROTO_H_
 
 #include "session.h"
-#include "sysutil.h"
-#include "str.h"
-#include "common.h"
-#include "ftpcodes.h"
-#include "tunable.h"
 
 void handle_child (session_t *sess);
 

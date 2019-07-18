@@ -3,6 +3,11 @@
 //
 
 #include "ftpproto.h"
+#include "sysutil.h"
+#include "str.h"
+#include "ftpcodes.h"
+#include "tunable.h"
+//#include "privsock.h"
 
 void ftp_reply (session_t *sess, int status, const char *text);
 void ftp_lreply (session_t *sess, int status, const char *text);

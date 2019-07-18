@@ -2,9 +2,10 @@
 // Created by S on 2019/5/15.
 //
 
-//#include <bits/types/FILE.h>
 #include "parseconf.h"
-
+#include "common.h"
+#include "tunable.h"
+#include "str.h"
 
 static struct parseconf_bool_setting {
   const char *p_setting_name;

@@ -3,6 +3,9 @@
 //
 
 #include "privparent.h"
+//#include "privsock.h"
+#include "sysutil.h"
+#include "tunable.h"
 
 void handle_parent (session_t *sess)
 {

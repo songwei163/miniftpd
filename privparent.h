@@ -6,7 +6,6 @@
 #define _PRIVPARENT_H_
 
 #include "session.h"
-#include "sysutil.h"
 
 void handle_parent (session_t *sess);
 
