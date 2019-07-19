@@ -12,10 +12,12 @@
 void ftp_reply (session_t *sess, int status, const char *text);
 void ftp_lreply (session_t *sess, int status, const char *text);
 
+int get_port_fd (session_t *sess);
 int list_common (session_t *sess);
 bool port_active (session_t *sess);
 bool pasv_active (session_t *sess);
 bool get_transfer_fd (session_t *sess);
+int get_pasv_fd (session_t *sess);
 
 static void do_user (session_t *sess);
 static void do_pass (session_t *sess);
@@ -55,51 +57,88 @@ typedef struct ftpcmd {
 
 static ftpcmd_t ctrl_cmds[] = {
     /* 访问控制命令 */
-    {"USER",                 do_user},
-    {"PASS",                 do_pass},
-    {"CWD",                  do_cwd},
-    {"XCWD",                 do_cwd},
-    {"CDUP",                 do_cdup},
-    {"XCUP",                 do_cdup},
-    {"QUIT",                 do_quit},
-    {"ACCT",               NULL},
-    {"SMNT",               NULL},
-    {"REIN",               NULL},
+    {"USER", do_user},
+    {"PASS", do_pass},
+    {"CWD", do_cwd},
+    {"XCWD", do_cwd},
+    {"CDUP", do_cdup},
+    {"XCUP", do_cdup},
+    {"QUIT", do_quit},
+    {"ACCT", NULL},
+    {"SMNT", NULL},
+    {"REIN", NULL},
     /* 传输参数命令 */
-    {"PORT",                 do_port},
-    {"PASV",                 do_pasv},
-    {"TYPE",                 do_type},
+    {"PORT", do_port},
+    {"PASV", do_pasv},
+    {"TYPE", do_type},
     {"STRU",    /*do_stru*/NULL},
     {"MODE",    /*do_mode*/NULL},
 
     /* 服务命令 */
-    {"RETR",                 do_retr},
-    {"STOR",                 do_stor},
-    {"APPE",                 do_appe},
-    {"LIST",                 do_list},
-    {"NLST",                 do_nlst},
-    {"REST",                 do_rest},
-    {"ABOR",                 do_abor},
+    {"RETR", do_retr},
+    {"STOR", do_stor},
+    {"APPE", do_appe},
+    {"LIST", do_list},
+    {"NLST", do_nlst},
+    {"REST", do_rest},
+    {"ABOR", do_abor},
     {"\377\364\377\362ABOR", do_abor},
-    {"PWD",                  do_pwd},
-    {"XPWD",                 do_pwd},
-    {"MKD",                  do_mkd},
-    {"XMKD",                 do_mkd},
-    {"RMD",                  do_rmd},
-    {"XRMD",                 do_rmd},
-    {"DELE",                 do_dele},
-    {"RNFR",                 do_rnfr},
-    {"RNTO",                 do_rnto},
-    {"SITE",                 do_site},
-    {"SYST",                 do_syst},
-    {"FEAT",                 do_feat},
-    {"SIZE",                 do_size},
-    {"STAT",                 do_stat},
-    {"NOOP",                 do_noop},
-    {"HELP",                 do_help},
-    {"STOU",               NULL},
-    {"ALLO",               NULL}
+    {"PWD", do_pwd},
+    {"XPWD", do_pwd},
+    {"MKD", do_mkd},
+    {"XMKD", do_mkd},
+    {"RMD", do_rmd},
+    {"XRMD", do_rmd},
+    {"DELE", do_dele},
+    {"RNFR", do_rnfr},
+    {"RNTO", do_rnto},
+    {"SITE", do_site},
+    {"SYST", do_syst},
+    {"FEAT", do_feat},
+    {"SIZE", do_size},
+    {"STAT", do_stat},
+    {"NOOP", do_noop},
+    {"HELP", do_help},
+    {"STOU", NULL},
+    {"ALLO", NULL}
 };
+
+int get_port_fd (session_t *sess)
+{
+  priv_sock_send_cmd (sess->child_fd, PRIV_SOCK_GET_DATA_SOCK);
+  unsigned short port = ntohs (sess->port_addr->sin_port);
+  char *ip = inet_ntoa (sess->port_addr->sin_addr);
+  priv_sock_send_int (sess->child_fd, (int) port);
+  priv_sock_send_buf (sess->child_fd, ip, strlen (ip));
+
+  char res = priv_sock_get_result (sess->child_fd);
+  if (res == PRIV_SOCK_RESULT_BAD)
+    {
+      return 0;
+    }
+  else if (res == PRIV_SOCK_RESULT_OK)
+    {
+      sess->data_fd = priv_sock_recv_fd (sess->child_fd);
+    }
+
+  return 1;
+}
+
+int get_pasv_fd (session_t *sess)
+{
+  priv_sock_send_cmd (sess->child_fd, PRIV_SOCK_PASV_ACCEPT);
+  char res = priv_sock_get_result (sess->child_fd);
+  if (res == PRIV_SOCK_RESULT_BAD)
+    {
+      return 0;
+    }
+  else if (res == PRIV_SOCK_RESULT_OK)
+    {
+      sess->data_fd = priv_sock_recv_fd (sess->child_fd);
+    }
+
+  return 1;
+}
 
 void handle_child (session_t *sess)
 {
@@ -211,26 +250,19 @@ int list_common (session_t *sess)
           mode_t mode = stbuf.st_mode;
           switch (mode & S_IFMT)
             {
-              case S_IFREG:
-                perms[0] = '-';
+              case S_IFREG:perms[0] = '-';
               break;
-              case S_IFDIR:
-                perms[0] = 'd';
+              case S_IFDIR:perms[0] = 'd';
               break;
-              case S_IFLNK:
-                perms[0] = 'l';
+              case S_IFLNK:perms[0] = 'l';
               break;
-              case S_IFIFO:
-                perms[0] = 'p';
+              case S_IFIFO:perms[0] = 'p';
               break;
-              case S_IFSOCK:
-                perms[0] = 's';
+              case S_IFSOCK:perms[0] = 's';
               break;
-              case S_IFCHR:
-                perms[0] = 'c';
+              case S_IFCHR:perms[0] = 'c';
               break;
-              case S_IFBLK:
-                perms[0] = 'b';
+              case S_IFBLK:perms[0] = 'b';
               break;
             }
 
@@ -315,10 +347,7 @@ int list_common (session_t *sess)
                 {
                   off += sprintf (buf + off, "%s\r\n", dt->d_name);
                 }
-
-              //sprintf (buf + off, "%s\r\n", dt->d_name);
             }
-          // printf ("%s", buf);
           writen (sess->data_fd, buf, sizeof (buf));
         }
       closedir (dir);
@@ -330,77 +359,70 @@ bool port_active (session_t *sess)
 {
   if (sess->port_addr)
     {
+      if (pasv_active (sess))
+        {
+          fprintf (stderr, "both port an pasv are active");
+          exit (EXIT_FAILURE);
+        }
       return true;
     }
+
   return false;
 }
 
 bool pasv_active (session_t *sess)
 {
-  if (sess->pasv_listen_fd != -1)
-    return true;
+  priv_sock_send_cmd (sess->child_fd, PRIV_SOCK_PASV_ACTIVE);
+  int active = priv_sock_get_int (sess->child_fd);
+  if (active)
+    {
+      if (port_active (sess))
+        {
+          fprintf (stderr, "both port an pasv are active");
+          exit (EXIT_FAILURE);
+        }
+      return true;
+    }
   return false;
-
 }
 
 bool get_transfer_fd (session_t *sess)
 {
   if (!port_active (sess) && !pasv_active (sess))
     {
-      //425 Use PORT or PASV first
-      ftp_reply (sess, FTP_BADSENDCONN, "Use PORT or PASV first");
+      ftp_reply (sess, FTP_BADSENDCONN, "Use PORT or PASV first.");
       return 0;
     }
 
-  if (port_active (sess) && pasv_active (sess))
-    {
-      //425 PORT both PASV active.
-      ftp_reply (sess, FTP_BADSENDCONN, "PORT both PASV active.");
-      return 0;
-    }
-
-  int datafd;
+  int ret = 1;
   if (port_active (sess))
     {
-
-      if ((datafd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
-        return 0;
-      socklen_t addrlen = sizeof (struct sockaddr);
-
-      /*
-      struct sockaddr_in address;
-      address.sin_family = AF_INET;
-      address.sin_port = htons(20);
-      address.sin_addr.s_addr = INADDR_ANY;
-
-      if(bind(datafd, (struct sockaddr*)&address, addrlen) < 0)
-          ERR_EXIT("bind 20");
-      */
-
-      if (connect (datafd, (struct sockaddr *) sess->port_addr, addrlen) < 0)
-        return 0;
-
+      if (get_port_fd (sess) == 0)
+        {
+          ret = 0;
+        }
     }
 
   if (pasv_active (sess))
     {
-      struct sockaddr_in addrcli;
-      socklen_t addrlen = sizeof (addrcli);
-      if ((datafd = accept (sess->pasv_listen_fd, (struct sockaddr *) &addrcli, &addrlen)) < 0)
-        return 0;
-      close (sess->pasv_listen_fd);
-      sess->pasv_listen_fd = -1;
+      if (get_pasv_fd (sess) == 0)
+        {
+          ret = 0;
+        }
     }
-  sess->data_fd = datafd;
 
   if (sess->port_addr)
     {
       free (sess->port_addr);
-      sess->port_addr = 0;
+      sess->port_addr = NULL;
     }
 
-  return 1;
+  if (ret)
+    {
+      //start_data_alarm ();
+    }
 
+  return ret;
 }
 
 static void do_user (session_t *sess)
@@ -459,62 +481,67 @@ static void do_pass (session_t *sess)
 }
 
 static void do_cwd (session_t *sess)
-{}
+{
+  if (chdir (sess->arg) < 0)
+    {
+      ftp_reply (sess, FTP_FILEFAIL, "Failed to change directory.");
+      return;
+    }
+
+  ftp_reply (sess, FTP_CWDOK, "Directory successfully changed.");
+}
 
 static void do_cdup (session_t *sess)
-{}
+{
+  if (chdir ("..") < 0)
+    {
+      ftp_reply (sess, FTP_FILEFAIL, "Failed to change directory.");
+      return;
+    }
+
+  ftp_reply (sess, FTP_CWDOK, "Directory successfully changed.");
+}
 
 static void do_quit (session_t *sess)
 {}
 
 static void do_port (session_t *sess)
 {
-  //PORT
   unsigned int v[6];
 
   sscanf (sess->arg, "%u,%u,%u,%u,%u,%u", &v[2], &v[3], &v[4], &v[5], &v[0], &v[1]);
-  sess->port_addr = malloc (sizeof (struct sockaddr));
-  memset (sess->port_addr, 0, sizeof (struct sockaddr));
+  sess->port_addr = (struct sockaddr_in *) malloc (sizeof (struct sockaddr_in));
+  memset (sess->port_addr, 0, sizeof (struct sockaddr_in));
   sess->port_addr->sin_family = AF_INET;
-
   unsigned char *p = (unsigned char *) &sess->port_addr->sin_port;
   p[0] = v[0];
   p[1] = v[1];
-  p = (unsigned char *) &sess->port_addr->sin_addr.s_addr;
+
+  p = (unsigned char *) &sess->port_addr->sin_addr;
   p[0] = v[2];
   p[1] = v[3];
   p[2] = v[4];
   p[3] = v[5];
 
-  ftp_reply (sess, FTP_PORTOK, "PORT command successful.Consider using PASV.");
-
+  ftp_reply (sess, FTP_PORTOK, "PORT command successful. Consider using PASV.");
 }
 
 static void do_pasv (session_t *sess)
 {
   char ip[16] = {0};
   getlocalip (ip);
-  int sockfd = tcp_server (ip, 0);
+  printf ("%s\n", ip);
 
-  struct sockaddr_in address;
-  socklen_t addrlen = sizeof (address);
-  if (getsockname (sockfd, (struct sockaddr *) &address, &addrlen) < 0)
-    ERR_EXIT("getsockname");
+  priv_sock_send_cmd (sess->child_fd, PRIV_SOCK_PASV_LISTEN);
+  unsigned short port = (int) priv_sock_get_int (sess->child_fd);
 
-  //printf("ip = %s\n", inet_ntoa(addr.sin_addr));
-  //printf("port = %d\n",ntohs(addr.sin_port));
-  unsigned short port = ntohs (address.sin_port);
-  unsigned char addr[6] = {0};
-  sscanf (ip, "%hhu.%hhu.%hhu.%hhu", &addr[0], &addr[1], &addr[2], &addr[3]);
-  addr[4] = ((port >> 8) & 0x00ff);
-  addr[5] = port & 0x00ff;
+  unsigned int v[4];
+  sscanf (ip, "%u.%u.%u.%u", &v[0], &v[1], &v[2], &v[3]);
+  char text[1024] = {0};
+  sprintf (text, "Entering Passive Mode (%u,%u,%u,%u,%u,%u).",
+           v[0], v[1], v[2], v[3], port >> 8, port & 0xFF);
 
-  char buf[MAX_BUFFER_SIZE] = {0};
-  sprintf (buf, "Entering Passive Mode (%u,%u,%u,%u,%u,%u)", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
-  //port = 8080
-  //227 Entering Passive Mode (192,168,0,200,76,240).
-  sess->pasv_listen_fd = sockfd;
-  ftp_reply (sess, FTP_PASVOK, buf);
+  ftp_reply (sess, FTP_PASVOK, text);
 }
 
 static void do_type (session_t *sess)
@@ -552,23 +579,21 @@ static void do_appe (session_t *sess)
 
 static void do_list (session_t *sess)
 {
-  //创建数据连接
+  // 创建数据连接
   if (get_transfer_fd (sess) == 0)
     {
-      //printf ("0\n");
       return;
     }
-  //printf ("1\n");
-
-  //150
+  // 150
   ftp_reply (sess, FTP_DATACONN, "Here comes the directory listing.");
-  //传输列表
-  list_common (sess);
-  //关闭数据套接字
-  close (sess->data_fd);
-  //226
-  ftp_reply (sess, FTP_TRANSFEROK, "Directory send OK.");
 
+  // 传输列表
+  list_common (sess);
+  // 关闭数据套接字
+  close (sess->data_fd);
+  sess->data_fd = -1;
+  // 226
+  ftp_reply (sess, FTP_TRANSFEROK, "Directory send OK.");
   /*
 3、	客户端向服务器端发送LIST
     服务器端检测在收到LIST命令之前是否接收过PORT或PASV命令
@@ -622,17 +647,7 @@ static void do_site (session_t *sess)
 
 static void do_syst (session_t *sess)
 {
-  ftp_reply (sess, FTP_SYSTOK, "UNIX Type: L8");     //ftp_reply(sess, FTP_FEAT, "-Features:");
-  writen (sess->ctrl_fd, "211-Features:\r\n", strlen ("211-Features:\r\n"));
-  writen (sess->ctrl_fd, "EPRT\r\n", strlen ("EPRT\r\n"));
-  writen (sess->ctrl_fd, "EPSV\r\n", strlen ("EPSV\r\n"));
-  writen (sess->ctrl_fd, "MDTM\r\n", strlen ("MDTM\r\n"));
-  writen (sess->ctrl_fd, "PASV\r\n", strlen ("PASV\r\n"));
-  writen (sess->ctrl_fd, "REST STREAM\r\n", strlen ("REST STREAM\r\n"));
-  writen (sess->ctrl_fd, "SIZE\r\n", strlen ("SIZE\r\n"));
-  writen (sess->ctrl_fd, "TVFS\r\n", strlen ("TVFS\r\n"));
-  writen (sess->ctrl_fd, "UTF8\r\n", strlen ("UTF8\r\n"));
-  ftp_reply (sess, FTP_FEAT, "end");
+  ftp_reply (sess, FTP_SYSTOK, "UNIX Type: L8");
 }
 
 static void do_feat (session_t *sess)

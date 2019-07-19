@@ -8,8 +8,8 @@
 #include "str.h"
 
 static struct parseconf_bool_setting {
-  const char *p_setting_name;
-  bool *p_variable;
+    const char *p_setting_name;
+    bool *p_variable;
 }
 
     parseconf_bool_array[] =
@@ -20,8 +20,8 @@ static struct parseconf_bool_setting {
     };
 
 static struct parseconf_uint_setting {
-  const char *p_setting_name;
-  unsigned int *p_variable;
+    const char *p_setting_name;
+    unsigned int *p_variable;
 }
 
     parseconf_uint_array[] =
@@ -40,8 +40,8 @@ static struct parseconf_uint_setting {
     };
 
 static struct parseconf_str_setting {
-  const char *p_setting_name;
-  const char **p_variable;
+    const char *p_setting_name;
+    const char **p_variable;
 }
 
     parseconf_str_array[] =

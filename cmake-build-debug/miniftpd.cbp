@@ -78,64 +78,64 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/s/CLionProjects/miniftpd/common.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/config/miniftpd.conf">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/ftpcodes.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/common.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/ftpproto.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/ftpcodes.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/ftpproto.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/ftpproto.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/main.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/ftpproto.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/miniftpd.conf">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/main.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/parseconf.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/parseconf.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/parseconf.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/parseconf.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/privparent.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/privparent.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/privparent.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/privparent.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/privsock.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/privsock.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/privsock.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/privsock.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/session.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/session.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/session.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/session.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/str.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/str.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/str.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/str.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/sysutil.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/sysutil.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/sysutil.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/sysutil.h">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/tunable.c">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/tunable.c">
 			<Option target="miniftpd"/>
 		</Unit>
-		<Unit filename="/home/s/CLionProjects/miniftpd/tunable.h">
+		<Unit filename="/home/s/CLionProjects/miniftpd/src/tunable.h">
 			<Option target="miniftpd"/>
 		</Unit>
 		<Unit filename="/home/s/CLionProjects/miniftpd/CMakeLists.txt">

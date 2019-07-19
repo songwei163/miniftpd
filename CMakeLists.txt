@@ -4,17 +4,17 @@ project(miniftpd C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(miniftpd
-        main.c
-        common.h
-        ftpcodes.h
-        miniftpd.conf
-        sysutil.h       sysutil.c
-        session.c       session.h
-        ftpproto.c      ftpproto.h
-        privparent.c    privparent.h
-        str.c           str.h
-        tunable.c       tunable.h
-        parseconf.c     parseconf.h
-        privsock.c      privsock.h)
+        src/main.c
+        src/common.h
+        src/ftpcodes.h
+        config/miniftpd.conf
+        src/sysutil.h src/sysutil.c
+        src/session.c src/session.h
+        src/ftpproto.c src/ftpproto.h
+        src/privparent.c src/privparent.h
+        src/str.c src/str.h
+        src/tunable.c src/tunable.h
+        src/parseconf.c src/parseconf.h
+        src/privsock.c src/privsock.h)
 
 target_link_libraries(miniftpd crypt)

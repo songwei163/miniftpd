@@ -37,30 +37,29 @@ int tcp_client (unsigned short port)
   return sock;
 }
 
-
-int tcp_server(const char *host, unsigned short port)
+int tcp_server (const char *host, unsigned short port)
 {
   int listenfd;
-  if ((listenfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+  if ((listenfd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
     ERR_EXIT("tcp_server");
 
   struct sockaddr_in servaddr;
-  memset(&servaddr, 0, sizeof(servaddr));
+  memset (&servaddr, 0, sizeof (servaddr));
   servaddr.sin_family = AF_INET;
-  if(host != NULL) //HOST == IP
-    servaddr.sin_addr.s_addr = inet_addr(host);
+  if (host != NULL) //HOST == IP
+    servaddr.sin_addr.s_addr = inet_addr (host);
   else
-    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-  servaddr.sin_port = htons(port);
+    servaddr.sin_addr.s_addr = htonl (INADDR_ANY);
+  servaddr.sin_port = htons (port);
 
   int on = 1;
-  if ((setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, (const char*)&on, sizeof(on))) < 0)
+  if ((setsockopt (listenfd, SOL_SOCKET, SO_REUSEADDR, (const char *) &on, sizeof (on))) < 0)
     ERR_EXIT("setsockopt");
 
-  if (bind(listenfd, (struct sockaddr*)&servaddr, sizeof(servaddr)) < 0)
+  if (bind (listenfd, (struct sockaddr *) &servaddr, sizeof (servaddr)) < 0)
     ERR_EXIT("bind");
 
-  if (listen(listenfd, SOMAXCONN) < 0)
+  if (listen (listenfd, SOMAXCONN) < 0)
     ERR_EXIT("listen");
 
   return listenfd;
@@ -68,19 +67,6 @@ int tcp_server(const char *host, unsigned short port)
 
 int getlocalip (char *ip)
 {
-  /*
-  char host[100] = {0};
-  if (gethostname(host, sizeof(host)) < 0)
-      return -1;
-  struct hostent *hp;
-  if ((hp = gethostbyname(host)) == NULL)
-      return -1;
-
-  strcpy(ip, inet_ntoa(*(struct in_addr*)hp->h_addr));
-      return 0;
-  */
-
-  // get eth1 net interface ip address
   int inet_sock;
   struct ifreq ifr;
 

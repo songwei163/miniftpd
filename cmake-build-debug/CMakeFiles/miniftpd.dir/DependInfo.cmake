@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/s/CLionProjects/miniftpd/ftpproto.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/ftpproto.c.o"
-  "/home/s/CLionProjects/miniftpd/main.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/main.c.o"
-  "/home/s/CLionProjects/miniftpd/parseconf.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/parseconf.c.o"
-  "/home/s/CLionProjects/miniftpd/privparent.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/privparent.c.o"
-  "/home/s/CLionProjects/miniftpd/privsock.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/privsock.c.o"
-  "/home/s/CLionProjects/miniftpd/session.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/session.c.o"
-  "/home/s/CLionProjects/miniftpd/str.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/str.c.o"
-  "/home/s/CLionProjects/miniftpd/sysutil.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/sysutil.c.o"
-  "/home/s/CLionProjects/miniftpd/tunable.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/tunable.c.o"
+  "/home/s/CLionProjects/miniftpd/src/ftpproto.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/ftpproto.c.o"
+  "/home/s/CLionProjects/miniftpd/src/main.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/main.c.o"
+  "/home/s/CLionProjects/miniftpd/src/parseconf.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/parseconf.c.o"
+  "/home/s/CLionProjects/miniftpd/src/privparent.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/privparent.c.o"
+  "/home/s/CLionProjects/miniftpd/src/privsock.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/privsock.c.o"
+  "/home/s/CLionProjects/miniftpd/src/session.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/session.c.o"
+  "/home/s/CLionProjects/miniftpd/src/str.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/str.c.o"
+  "/home/s/CLionProjects/miniftpd/src/sysutil.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/sysutil.c.o"
+  "/home/s/CLionProjects/miniftpd/src/tunable.c" "/home/s/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/src/tunable.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

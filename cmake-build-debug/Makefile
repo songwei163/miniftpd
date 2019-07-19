@@ -123,248 +123,248 @@ miniftpd/fast:
 	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/build
 .PHONY : miniftpd/fast
 
-ftpproto.o: ftpproto.c.o
+src/ftpproto.o: src/ftpproto.c.o
 
-.PHONY : ftpproto.o
-
-# target to build an object file
-ftpproto.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/ftpproto.c.o
-.PHONY : ftpproto.c.o
-
-ftpproto.i: ftpproto.c.i
-
-.PHONY : ftpproto.i
-
-# target to preprocess a source file
-ftpproto.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/ftpproto.c.i
-.PHONY : ftpproto.c.i
-
-ftpproto.s: ftpproto.c.s
-
-.PHONY : ftpproto.s
-
-# target to generate assembly for a file
-ftpproto.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/ftpproto.c.s
-.PHONY : ftpproto.c.s
-
-main.o: main.c.o
-
-.PHONY : main.o
+.PHONY : src/ftpproto.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/main.c.o
-.PHONY : main.c.o
+src/ftpproto.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/ftpproto.c.o
+.PHONY : src/ftpproto.c.o
 
-main.i: main.c.i
+src/ftpproto.i: src/ftpproto.c.i
 
-.PHONY : main.i
+.PHONY : src/ftpproto.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/main.c.i
-.PHONY : main.c.i
+src/ftpproto.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/ftpproto.c.i
+.PHONY : src/ftpproto.c.i
 
-main.s: main.c.s
+src/ftpproto.s: src/ftpproto.c.s
 
-.PHONY : main.s
+.PHONY : src/ftpproto.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/main.c.s
-.PHONY : main.c.s
+src/ftpproto.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/ftpproto.c.s
+.PHONY : src/ftpproto.c.s
 
-parseconf.o: parseconf.c.o
+src/main.o: src/main.c.o
 
-.PHONY : parseconf.o
+.PHONY : src/main.o
 
 # target to build an object file
-parseconf.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/parseconf.c.o
-.PHONY : parseconf.c.o
+src/main.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/main.c.o
+.PHONY : src/main.c.o
 
-parseconf.i: parseconf.c.i
+src/main.i: src/main.c.i
 
-.PHONY : parseconf.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-parseconf.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/parseconf.c.i
-.PHONY : parseconf.c.i
+src/main.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/main.c.i
+.PHONY : src/main.c.i
 
-parseconf.s: parseconf.c.s
+src/main.s: src/main.c.s
 
-.PHONY : parseconf.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-parseconf.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/parseconf.c.s
-.PHONY : parseconf.c.s
+src/main.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/main.c.s
+.PHONY : src/main.c.s
 
-privparent.o: privparent.c.o
+src/parseconf.o: src/parseconf.c.o
 
-.PHONY : privparent.o
+.PHONY : src/parseconf.o
 
 # target to build an object file
-privparent.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privparent.c.o
-.PHONY : privparent.c.o
+src/parseconf.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/parseconf.c.o
+.PHONY : src/parseconf.c.o
 
-privparent.i: privparent.c.i
+src/parseconf.i: src/parseconf.c.i
 
-.PHONY : privparent.i
+.PHONY : src/parseconf.i
 
 # target to preprocess a source file
-privparent.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privparent.c.i
-.PHONY : privparent.c.i
+src/parseconf.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/parseconf.c.i
+.PHONY : src/parseconf.c.i
 
-privparent.s: privparent.c.s
+src/parseconf.s: src/parseconf.c.s
 
-.PHONY : privparent.s
+.PHONY : src/parseconf.s
 
 # target to generate assembly for a file
-privparent.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privparent.c.s
-.PHONY : privparent.c.s
+src/parseconf.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/parseconf.c.s
+.PHONY : src/parseconf.c.s
 
-privsock.o: privsock.c.o
+src/privparent.o: src/privparent.c.o
 
-.PHONY : privsock.o
+.PHONY : src/privparent.o
 
 # target to build an object file
-privsock.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privsock.c.o
-.PHONY : privsock.c.o
+src/privparent.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/privparent.c.o
+.PHONY : src/privparent.c.o
 
-privsock.i: privsock.c.i
+src/privparent.i: src/privparent.c.i
 
-.PHONY : privsock.i
+.PHONY : src/privparent.i
 
 # target to preprocess a source file
-privsock.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privsock.c.i
-.PHONY : privsock.c.i
+src/privparent.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/privparent.c.i
+.PHONY : src/privparent.c.i
 
-privsock.s: privsock.c.s
+src/privparent.s: src/privparent.c.s
 
-.PHONY : privsock.s
+.PHONY : src/privparent.s
 
 # target to generate assembly for a file
-privsock.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/privsock.c.s
-.PHONY : privsock.c.s
+src/privparent.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/privparent.c.s
+.PHONY : src/privparent.c.s
 
-session.o: session.c.o
+src/privsock.o: src/privsock.c.o
 
-.PHONY : session.o
+.PHONY : src/privsock.o
 
 # target to build an object file
-session.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/session.c.o
-.PHONY : session.c.o
+src/privsock.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/privsock.c.o
+.PHONY : src/privsock.c.o
 
-session.i: session.c.i
+src/privsock.i: src/privsock.c.i
 
-.PHONY : session.i
+.PHONY : src/privsock.i
 
 # target to preprocess a source file
-session.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/session.c.i
-.PHONY : session.c.i
+src/privsock.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/privsock.c.i
+.PHONY : src/privsock.c.i
 
-session.s: session.c.s
+src/privsock.s: src/privsock.c.s
 
-.PHONY : session.s
+.PHONY : src/privsock.s
 
 # target to generate assembly for a file
-session.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/session.c.s
-.PHONY : session.c.s
+src/privsock.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/privsock.c.s
+.PHONY : src/privsock.c.s
 
-str.o: str.c.o
+src/session.o: src/session.c.o
 
-.PHONY : str.o
+.PHONY : src/session.o
 
 # target to build an object file
-str.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/str.c.o
-.PHONY : str.c.o
+src/session.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/session.c.o
+.PHONY : src/session.c.o
 
-str.i: str.c.i
+src/session.i: src/session.c.i
 
-.PHONY : str.i
+.PHONY : src/session.i
 
 # target to preprocess a source file
-str.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/str.c.i
-.PHONY : str.c.i
+src/session.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/session.c.i
+.PHONY : src/session.c.i
 
-str.s: str.c.s
+src/session.s: src/session.c.s
 
-.PHONY : str.s
+.PHONY : src/session.s
 
 # target to generate assembly for a file
-str.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/str.c.s
-.PHONY : str.c.s
+src/session.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/session.c.s
+.PHONY : src/session.c.s
 
-sysutil.o: sysutil.c.o
+src/str.o: src/str.c.o
 
-.PHONY : sysutil.o
+.PHONY : src/str.o
 
 # target to build an object file
-sysutil.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/sysutil.c.o
-.PHONY : sysutil.c.o
+src/str.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/str.c.o
+.PHONY : src/str.c.o
 
-sysutil.i: sysutil.c.i
+src/str.i: src/str.c.i
 
-.PHONY : sysutil.i
+.PHONY : src/str.i
 
 # target to preprocess a source file
-sysutil.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/sysutil.c.i
-.PHONY : sysutil.c.i
+src/str.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/str.c.i
+.PHONY : src/str.c.i
 
-sysutil.s: sysutil.c.s
+src/str.s: src/str.c.s
 
-.PHONY : sysutil.s
+.PHONY : src/str.s
 
 # target to generate assembly for a file
-sysutil.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/sysutil.c.s
-.PHONY : sysutil.c.s
+src/str.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/str.c.s
+.PHONY : src/str.c.s
 
-tunable.o: tunable.c.o
+src/sysutil.o: src/sysutil.c.o
 
-.PHONY : tunable.o
+.PHONY : src/sysutil.o
 
 # target to build an object file
-tunable.c.o:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/tunable.c.o
-.PHONY : tunable.c.o
+src/sysutil.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/sysutil.c.o
+.PHONY : src/sysutil.c.o
 
-tunable.i: tunable.c.i
+src/sysutil.i: src/sysutil.c.i
 
-.PHONY : tunable.i
+.PHONY : src/sysutil.i
 
 # target to preprocess a source file
-tunable.c.i:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/tunable.c.i
-.PHONY : tunable.c.i
+src/sysutil.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/sysutil.c.i
+.PHONY : src/sysutil.c.i
 
-tunable.s: tunable.c.s
+src/sysutil.s: src/sysutil.c.s
 
-.PHONY : tunable.s
+.PHONY : src/sysutil.s
 
 # target to generate assembly for a file
-tunable.c.s:
-	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/tunable.c.s
-.PHONY : tunable.c.s
+src/sysutil.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/sysutil.c.s
+.PHONY : src/sysutil.c.s
+
+src/tunable.o: src/tunable.c.o
+
+.PHONY : src/tunable.o
+
+# target to build an object file
+src/tunable.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/tunable.c.o
+.PHONY : src/tunable.c.o
+
+src/tunable.i: src/tunable.c.i
+
+.PHONY : src/tunable.i
+
+# target to preprocess a source file
+src/tunable.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/tunable.c.i
+.PHONY : src/tunable.c.i
+
+src/tunable.s: src/tunable.c.s
+
+.PHONY : src/tunable.s
+
+# target to generate assembly for a file
+src/tunable.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/tunable.c.s
+.PHONY : src/tunable.c.s
 
 # Help Target
 help:
@@ -375,33 +375,33 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... miniftpd"
 	@echo "... edit_cache"
-	@echo "... ftpproto.o"
-	@echo "... ftpproto.i"
-	@echo "... ftpproto.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... parseconf.o"
-	@echo "... parseconf.i"
-	@echo "... parseconf.s"
-	@echo "... privparent.o"
-	@echo "... privparent.i"
-	@echo "... privparent.s"
-	@echo "... privsock.o"
-	@echo "... privsock.i"
-	@echo "... privsock.s"
-	@echo "... session.o"
-	@echo "... session.i"
-	@echo "... session.s"
-	@echo "... str.o"
-	@echo "... str.i"
-	@echo "... str.s"
-	@echo "... sysutil.o"
-	@echo "... sysutil.i"
-	@echo "... sysutil.s"
-	@echo "... tunable.o"
-	@echo "... tunable.i"
-	@echo "... tunable.s"
+	@echo "... src/ftpproto.o"
+	@echo "... src/ftpproto.i"
+	@echo "... src/ftpproto.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/parseconf.o"
+	@echo "... src/parseconf.i"
+	@echo "... src/parseconf.s"
+	@echo "... src/privparent.o"
+	@echo "... src/privparent.i"
+	@echo "... src/privparent.s"
+	@echo "... src/privsock.o"
+	@echo "... src/privsock.i"
+	@echo "... src/privsock.s"
+	@echo "... src/session.o"
+	@echo "... src/session.i"
+	@echo "... src/session.s"
+	@echo "... src/str.o"
+	@echo "... src/str.i"
+	@echo "... src/str.s"
+	@echo "... src/sysutil.o"
+	@echo "... src/sysutil.i"
+	@echo "... src/sysutil.s"
+	@echo "... src/tunable.o"
+	@echo "... src/tunable.i"
+	@echo "... src/tunable.s"
 .PHONY : help
 
 

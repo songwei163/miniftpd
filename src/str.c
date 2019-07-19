@@ -142,4 +142,4 @@ unsigned int str_octal_to_uint (const char *str)
       str++;
     }
   return result;
-   }
+}
