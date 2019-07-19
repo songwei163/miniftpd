@@ -16,12 +16,14 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <signal.h>
+#include <linux/capability.h>
 #include <sys/time.h>
 #include <libgen.h>
 #include <net/if.h>
 #include <net/if_arp.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
+#include <sys/syscall.h>
 #include <netdb.h>
 
 //shdows password

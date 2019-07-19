@@ -7,6 +7,7 @@
 
 #include "session.h"
 
+
 // 内部进程自定义协议
 // 用于FTP服务进程与nobody进程进行通信
 
@@ -36,5 +37,6 @@ void priv_sock_send_buf (int fd, const char *buf, unsigned int len);
 void priv_sock_recv_buf (int fd, char *buf, unsigned int len);
 void priv_sock_send_fd (int sock_fd, int fd);
 int priv_sock_recv_fd (int sock_fd);
+
 
 #endif //_PRIVSOCK_H_

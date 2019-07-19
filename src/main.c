@@ -75,7 +75,7 @@ int main (int argc, char *argv[])
       /*父子进程通道*/
       -1, -1, false,
       /*ftp协议状态*/
-      false
+      false,
   };
 
   int connfd = 0;

@@ -1,10 +1,10 @@
 //
 // Created by s on 19-7-18.
 //
-
+#include "privparent.h"
 #include "privsock.h"
-#include "common.h"
 #include "sysutil.h"
+#include "tunable.h"
 
 void priv_sock_init (session_t *sess)
 {
@@ -166,4 +166,3 @@ int priv_sock_recv_fd (int sock_fd)
 {
   return recv_fd (sock_fd);
 }
-

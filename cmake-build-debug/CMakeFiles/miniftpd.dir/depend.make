@@ -35,10 +35,12 @@ CMakeFiles/miniftpd.dir/src/privparent.c.o: ../src/sysutil.h
 CMakeFiles/miniftpd.dir/src/privparent.c.o: ../src/tunable.h
 
 CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/common.h
+CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/privparent.h
 CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/privsock.c
 CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/privsock.h
 CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/session.h
 CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/sysutil.h
+CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/tunable.h
 
 CMakeFiles/miniftpd.dir/src/session.c.o: ../src/common.h
 CMakeFiles/miniftpd.dir/src/session.c.o: ../src/ftpproto.h
