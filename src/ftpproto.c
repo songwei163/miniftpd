@@ -70,50 +70,50 @@ typedef struct ftpcmd {
 
 static ftpcmd_t ctrl_cmds[] = {
     /* 访问控制命令 */
-    {"USER", do_user},
-    {"PASS", do_pass},
-    {"CWD", do_cwd},
-    {"XCWD", do_cwd},
-    {"CDUP", do_cdup},
-    {"XCUP", do_cdup},
-    {"QUIT", do_quit},
-    {"ACCT", NULL},
-    {"SMNT", NULL},
-    {"REIN", NULL},
+    {"USER",                 do_user},
+    {"PASS",                 do_pass},
+    {"CWD",                  do_cwd},
+    {"XCWD",                 do_cwd},
+    {"CDUP",                 do_cdup},
+    {"XCUP",                 do_cdup},
+    {"QUIT",                 do_quit},
+    {"ACCT",               NULL},
+    {"SMNT",               NULL},
+    {"REIN",               NULL},
     /* 传输参数命令 */
-    {"PORT", do_port},
-    {"PASV", do_pasv},
-    {"TYPE", do_type},
+    {"PORT",                 do_port},
+    {"PASV",                 do_pasv},
+    {"TYPE",                 do_type},
     {"STRU",    /*do_stru*/NULL},
     {"MODE",    /*do_mode*/NULL},
 
     /* 服务命令 */
-    {"RETR", do_retr},
-    {"STOR", do_stor},
-    {"APPE", do_appe},
-    {"LIST", do_list},
-    {"NLST", do_nlst},
-    {"REST", do_rest},
-    {"ABOR", do_abor},
+    {"RETR",                 do_retr},
+    {"STOR",                 do_stor},
+    {"APPE",                 do_appe},
+    {"LIST",                 do_list},
+    {"NLST",                 do_nlst},
+    {"REST",                 do_rest},
+    {"ABOR",                 do_abor},
     {"\377\364\377\362ABOR", do_abor},
-    {"PWD", do_pwd},
-    {"XPWD", do_pwd},
-    {"MKD", do_mkd},
-    {"XMKD", do_mkd},
-    {"RMD", do_rmd},
-    {"XRMD", do_rmd},
-    {"DELE", do_dele},
-    {"RNFR", do_rnfr},
-    {"RNTO", do_rnto},
-    {"SITE", do_site},
-    {"SYST", do_syst},
-    {"FEAT", do_feat},
-    {"SIZE", do_size},
-    {"STAT", do_stat},
-    {"NOOP", do_noop},
-    {"HELP", do_help},
-    {"STOU", NULL},
-    {"ALLO", NULL}
+    {"PWD",                  do_pwd},
+    {"XPWD",                 do_pwd},
+    {"MKD",                  do_mkd},
+    {"XMKD",                 do_mkd},
+    {"RMD",                  do_rmd},
+    {"XRMD",                 do_rmd},
+    {"DELE",                 do_dele},
+    {"RNFR",                 do_rnfr},
+    {"RNTO",                 do_rnto},
+    {"SITE",                 do_site},
+    {"SYST",                 do_syst},
+    {"FEAT",                 do_feat},
+    {"SIZE",                 do_size},
+    {"STAT",                 do_stat},
+    {"NOOP",                 do_noop},
+    {"HELP",                 do_help},
+    {"STOU",               NULL},
+    {"ALLO",               NULL}
 };
 
 session_t *p_sess;
@@ -385,19 +385,26 @@ int list_common (session_t *sess, int detail)
           mode_t mode = stbuf.st_mode;
           switch (mode & S_IFMT)
             {
-              case S_IFREG:perms[0] = '-';
+              case S_IFREG:
+                perms[0] = '-';
               break;
-              case S_IFDIR:perms[0] = 'd';
+              case S_IFDIR:
+                perms[0] = 'd';
               break;
-              case S_IFLNK:perms[0] = 'l';
+              case S_IFLNK:
+                perms[0] = 'l';
               break;
-              case S_IFIFO:perms[0] = 'p';
+              case S_IFIFO:
+                perms[0] = 'p';
               break;
-              case S_IFSOCK:perms[0] = 's';
+              case S_IFSOCK:
+                perms[0] = 's';
               break;
-              case S_IFCHR:perms[0] = 'c';
+              case S_IFCHR:
+                perms[0] = 'c';
               break;
-              case S_IFBLK:perms[0] = 'b';
+              case S_IFBLK:
+                perms[0] = 'b';
               break;
             }
 
@@ -502,51 +509,51 @@ static void upload_common (session_t *sess, int is_append)
 
 void handle_child (session_t *sess)
 {
-  ftp_reply(sess, FTP_GREET, "(miniftpd 1.0)");
+  ftp_reply (sess, FTP_GREET, "(miniftpd 1.0)");
   int ret;
-  while(1)
+  while (1)
     {
-      memset(sess->cmdline, 0, sizeof(sess->cmdline));
-      memset(sess->cmd, 0, sizeof(sess->cmd));
-      memset(sess->arg, 0, sizeof(sess->arg));
+      memset (sess->cmdline, 0, sizeof (sess->cmdline));
+      memset (sess->cmd, 0, sizeof (sess->cmd));
+      memset (sess->arg, 0, sizeof (sess->arg));
 
       //ssize_t readline(int sockfd, void *buf, size_t maxline);
-      ret = readline(sess->ctrl_fd, sess->cmdline, MAX_COMMAND_LINE);
-      if(ret == 0)
+      ret = readline (sess->ctrl_fd, sess->cmdline, MAX_COMMAND_LINE);
+      if (ret == 0)
         {
-          exit(EXIT_SUCCESS);
+          exit (EXIT_SUCCESS);
         }
-      else if(ret < 0)
+      else if (ret < 0)
         {
           ERR_EXIT("readline");
         }
-      str_trim_crlf(sess->cmdline);
+      str_trim_crlf (sess->cmdline);
       //printf("cmdline = [%s]\n", sess->cmdline);
-      str_split(sess->cmdline, sess->cmd, sess->arg, ' ');
+      str_split (sess->cmdline, sess->cmd, sess->arg, ' ');
       //printf("command = [%s]\n", sess->cmd);
       //printf("arg = [%s]\n", sess->arg);
 
-      size_t n = sizeof(ctrl_cmds) / sizeof(ftpcmd_t);
+      size_t n = sizeof (ctrl_cmds) / sizeof (ftpcmd_t);
       size_t i;
-      for(i=0; i<n; ++i)
+      for (i = 0; i < n; ++i)
         {
-          if(strcmp(ctrl_cmds[i].cmd, sess->cmd) == 0)
+          if (strcmp (ctrl_cmds[i].cmd, sess->cmd) == 0)
             {
-              if(ctrl_cmds[i].cmdhandler != NULL)
+              if (ctrl_cmds[i].cmdhandler != NULL)
                 {
-                  (*ctrl_cmds[i].cmdhandler)(sess);
+                  (*ctrl_cmds[i].cmdhandler) (sess);
                 }
               else
                 {
                   char buf[1024] = {0};
-                  sprintf(buf, "%s not implemented.", sess->cmd);
-                  ftp_reply(sess, FTP_COMMANDNOTIMPL, buf);
+                  sprintf (buf, "%s not implemented.", sess->cmd);
+                  ftp_reply (sess, FTP_COMMANDNOTIMPL, buf);
                 }
               break;
             }
         }
-      if(i >= n)
-        ftp_reply(sess, FTP_BADCMD, "Unknown command.");
+      if (i >= n)
+        ftp_reply (sess, FTP_BADCMD, "Unknown command.");
     }
 }
 
@@ -578,29 +585,29 @@ static void do_user (session_t *sess)
 
 static void do_pass (session_t *sess)
 {
-  struct passwd *pw = getpwuid(sess->uid);
-  if(pw == NULL)
+  struct passwd *pw = getpwuid (sess->uid);
+  if (pw == NULL)
     {
       //530 Login incorrect.
-      ftp_reply(sess, FTP_LOGINERR, "Login incorrect.");
+      ftp_reply (sess, FTP_LOGINERR, "Login incorrect.");
       return;
     }
 
-  struct spwd *spw = getspnam(pw->pw_name);
+  struct spwd *spw = getspnam (pw->pw_name);
 
-  char *crypt_passwd = crypt(sess->arg, spw->sp_pwdp);
-  if(strcmp(spw->sp_pwdp, crypt_passwd) != 0)
+  char *crypt_passwd = crypt (sess->arg, spw->sp_pwdp);
+  if (strcmp (spw->sp_pwdp, crypt_passwd) != 0)
     {
-      ftp_reply(sess, FTP_LOGINERR, "Login incorrect.");
+      ftp_reply (sess, FTP_LOGINERR, "Login incorrect.");
       return;
     }
 
-  setegid(pw->pw_gid);
-  seteuid(pw->pw_uid);
-  chdir(pw->pw_dir);
+  setegid (pw->pw_gid);
+  seteuid (pw->pw_uid);
+  chdir (pw->pw_dir);
 
   //230 Login successful.
-  ftp_reply(sess, FTP_LOGINOK, "Login successful.");
+  ftp_reply (sess, FTP_LOGINOK, "Login successful.");
 }
 
 static void do_syst (session_t *sess)
@@ -669,9 +676,9 @@ static void do_port (session_t *sess)
 
 static void do_pasv (session_t *sess)
 {
-  //char ip[16] = {0};
-  //getlocalip (ip);
-  char ip[] = "192.168.43.67";
+  char ip[16] = {0};
+  getlocalip (ip);
+  //char ip[] = "192.168.52.128";
 
   /*
   sess->pasv_listen_fd = tcp_server(ip, 0);
@@ -835,12 +842,26 @@ static void do_dele (session_t *sess)
 
 static void do_rnfr (session_t *sess)
 {
-
+  sess->rnfr_name = (char *)malloc(strlen(sess->arg) + 1);
+  memset(sess->rnfr_name, 0, strlen(sess->arg) + 1);
+  strcpy(sess->rnfr_name, sess->arg);
+  ftp_reply(sess, FTP_RNFROK, "Ready for rnto.");
 }
 
 static void do_rnto (session_t *sess)
 {
-
+  if (sess->rnfr_name == NULL)
+    {
+      ftp_reply(sess, FTP_NEEDRNFR, "RNFP required frist.");
+      return;
+    }
+  if (rename(sess->rnfr_name, sess->arg) < 0)
+    {
+      ftp_reply(sess, FTP_FILEFAIL, "Rename failed.");
+    }
+  ftp_reply(sess, FTP_RENAMEOK, "Rename successful.");
+  free(sess->rnfr_name);
+  sess->rnfr_name = NULL;
 }
 
 static void do_site (session_t *sess)
@@ -866,6 +887,7 @@ static void do_site (session_t *sess)
       ftp_reply (sess, FTP_BADCMD, "Unknown SITE command.");
     }
 }
+
 static void do_size (session_t *sess)
 {
   struct stat buf;
@@ -932,6 +954,7 @@ static void do_site_chmod (session_t *sess, char *chmod_arg)
       ftp_reply (sess, FTP_CHMODOK, "SITE CHMOD command ok.");
     }
 }
+
 static void do_site_umask (session_t *sess, char *umask_arg)
 {
   if (strlen (umask_arg) == 0)

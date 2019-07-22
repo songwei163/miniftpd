@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.dzXhTas3YE
+CMAKE_SOURCE_DIR = /home/s/my_work_space/miniftpd
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.dzXhTas3YE/cmake-build-debug
+CMAKE_BINARY_DIR = /home/s/my_work_space/miniftpd/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/miniftpd.dir/depend.make
@@ -59,120 +59,120 @@ include CMakeFiles/miniftpd.dir/flags.make
 
 CMakeFiles/miniftpd.dir/src/main.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/miniftpd.dir/src/main.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/main.c.o   -c /tmp/tmp.dzXhTas3YE/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/miniftpd.dir/src/main.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/main.c.o   -c /home/s/my_work_space/miniftpd/src/main.c
 
 CMakeFiles/miniftpd.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/main.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/main.c > CMakeFiles/miniftpd.dir/src/main.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/main.c > CMakeFiles/miniftpd.dir/src/main.c.i
 
 CMakeFiles/miniftpd.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/main.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/main.c -o CMakeFiles/miniftpd.dir/src/main.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/main.c -o CMakeFiles/miniftpd.dir/src/main.c.s
 
 CMakeFiles/miniftpd.dir/src/sysutil.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/sysutil.c.o: ../src/sysutil.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/miniftpd.dir/src/sysutil.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/sysutil.c.o   -c /tmp/tmp.dzXhTas3YE/src/sysutil.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/miniftpd.dir/src/sysutil.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/sysutil.c.o   -c /home/s/my_work_space/miniftpd/src/sysutil.c
 
 CMakeFiles/miniftpd.dir/src/sysutil.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/sysutil.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/sysutil.c > CMakeFiles/miniftpd.dir/src/sysutil.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/sysutil.c > CMakeFiles/miniftpd.dir/src/sysutil.c.i
 
 CMakeFiles/miniftpd.dir/src/sysutil.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/sysutil.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/sysutil.c -o CMakeFiles/miniftpd.dir/src/sysutil.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/sysutil.c -o CMakeFiles/miniftpd.dir/src/sysutil.c.s
 
 CMakeFiles/miniftpd.dir/src/session.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/session.c.o: ../src/session.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/miniftpd.dir/src/session.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/session.c.o   -c /tmp/tmp.dzXhTas3YE/src/session.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/miniftpd.dir/src/session.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/session.c.o   -c /home/s/my_work_space/miniftpd/src/session.c
 
 CMakeFiles/miniftpd.dir/src/session.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/session.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/session.c > CMakeFiles/miniftpd.dir/src/session.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/session.c > CMakeFiles/miniftpd.dir/src/session.c.i
 
 CMakeFiles/miniftpd.dir/src/session.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/session.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/session.c -o CMakeFiles/miniftpd.dir/src/session.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/session.c -o CMakeFiles/miniftpd.dir/src/session.c.s
 
 CMakeFiles/miniftpd.dir/src/ftpproto.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/ftpproto.c.o: ../src/ftpproto.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/miniftpd.dir/src/ftpproto.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/ftpproto.c.o   -c /tmp/tmp.dzXhTas3YE/src/ftpproto.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/miniftpd.dir/src/ftpproto.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/ftpproto.c.o   -c /home/s/my_work_space/miniftpd/src/ftpproto.c
 
 CMakeFiles/miniftpd.dir/src/ftpproto.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/ftpproto.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/ftpproto.c > CMakeFiles/miniftpd.dir/src/ftpproto.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/ftpproto.c > CMakeFiles/miniftpd.dir/src/ftpproto.c.i
 
 CMakeFiles/miniftpd.dir/src/ftpproto.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/ftpproto.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/ftpproto.c -o CMakeFiles/miniftpd.dir/src/ftpproto.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/ftpproto.c -o CMakeFiles/miniftpd.dir/src/ftpproto.c.s
 
 CMakeFiles/miniftpd.dir/src/privparent.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/privparent.c.o: ../src/privparent.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/miniftpd.dir/src/privparent.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/privparent.c.o   -c /tmp/tmp.dzXhTas3YE/src/privparent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/miniftpd.dir/src/privparent.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/privparent.c.o   -c /home/s/my_work_space/miniftpd/src/privparent.c
 
 CMakeFiles/miniftpd.dir/src/privparent.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/privparent.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/privparent.c > CMakeFiles/miniftpd.dir/src/privparent.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/privparent.c > CMakeFiles/miniftpd.dir/src/privparent.c.i
 
 CMakeFiles/miniftpd.dir/src/privparent.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/privparent.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/privparent.c -o CMakeFiles/miniftpd.dir/src/privparent.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/privparent.c -o CMakeFiles/miniftpd.dir/src/privparent.c.s
 
 CMakeFiles/miniftpd.dir/src/str.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/str.c.o: ../src/str.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/miniftpd.dir/src/str.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/str.c.o   -c /tmp/tmp.dzXhTas3YE/src/str.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/miniftpd.dir/src/str.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/str.c.o   -c /home/s/my_work_space/miniftpd/src/str.c
 
 CMakeFiles/miniftpd.dir/src/str.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/str.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/str.c > CMakeFiles/miniftpd.dir/src/str.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/str.c > CMakeFiles/miniftpd.dir/src/str.c.i
 
 CMakeFiles/miniftpd.dir/src/str.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/str.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/str.c -o CMakeFiles/miniftpd.dir/src/str.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/str.c -o CMakeFiles/miniftpd.dir/src/str.c.s
 
 CMakeFiles/miniftpd.dir/src/tunable.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/tunable.c.o: ../src/tunable.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/miniftpd.dir/src/tunable.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/tunable.c.o   -c /tmp/tmp.dzXhTas3YE/src/tunable.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/miniftpd.dir/src/tunable.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/tunable.c.o   -c /home/s/my_work_space/miniftpd/src/tunable.c
 
 CMakeFiles/miniftpd.dir/src/tunable.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/tunable.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/tunable.c > CMakeFiles/miniftpd.dir/src/tunable.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/tunable.c > CMakeFiles/miniftpd.dir/src/tunable.c.i
 
 CMakeFiles/miniftpd.dir/src/tunable.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/tunable.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/tunable.c -o CMakeFiles/miniftpd.dir/src/tunable.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/tunable.c -o CMakeFiles/miniftpd.dir/src/tunable.c.s
 
 CMakeFiles/miniftpd.dir/src/parseconf.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/parseconf.c.o: ../src/parseconf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/miniftpd.dir/src/parseconf.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/parseconf.c.o   -c /tmp/tmp.dzXhTas3YE/src/parseconf.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/miniftpd.dir/src/parseconf.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/parseconf.c.o   -c /home/s/my_work_space/miniftpd/src/parseconf.c
 
 CMakeFiles/miniftpd.dir/src/parseconf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/parseconf.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/parseconf.c > CMakeFiles/miniftpd.dir/src/parseconf.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/parseconf.c > CMakeFiles/miniftpd.dir/src/parseconf.c.i
 
 CMakeFiles/miniftpd.dir/src/parseconf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/parseconf.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/parseconf.c -o CMakeFiles/miniftpd.dir/src/parseconf.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/parseconf.c -o CMakeFiles/miniftpd.dir/src/parseconf.c.s
 
 CMakeFiles/miniftpd.dir/src/privsock.c.o: CMakeFiles/miniftpd.dir/flags.make
 CMakeFiles/miniftpd.dir/src/privsock.c.o: ../src/privsock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/miniftpd.dir/src/privsock.c.o"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/privsock.c.o   -c /tmp/tmp.dzXhTas3YE/src/privsock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/miniftpd.dir/src/privsock.c.o"
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/miniftpd.dir/src/privsock.c.o   -c /home/s/my_work_space/miniftpd/src/privsock.c
 
 CMakeFiles/miniftpd.dir/src/privsock.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/miniftpd.dir/src/privsock.c.i"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.dzXhTas3YE/src/privsock.c > CMakeFiles/miniftpd.dir/src/privsock.c.i
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/s/my_work_space/miniftpd/src/privsock.c > CMakeFiles/miniftpd.dir/src/privsock.c.i
 
 CMakeFiles/miniftpd.dir/src/privsock.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/miniftpd.dir/src/privsock.c.s"
-	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.dzXhTas3YE/src/privsock.c -o CMakeFiles/miniftpd.dir/src/privsock.c.s
+	/usr/lib64/ccache/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/s/my_work_space/miniftpd/src/privsock.c -o CMakeFiles/miniftpd.dir/src/privsock.c.s
 
 # Object files for target miniftpd
 miniftpd_OBJECTS = \
@@ -200,7 +200,7 @@ miniftpd: CMakeFiles/miniftpd.dir/src/parseconf.c.o
 miniftpd: CMakeFiles/miniftpd.dir/src/privsock.c.o
 miniftpd: CMakeFiles/miniftpd.dir/build.make
 miniftpd: CMakeFiles/miniftpd.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable miniftpd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable miniftpd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/miniftpd.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -213,6 +213,6 @@ CMakeFiles/miniftpd.dir/clean:
 .PHONY : CMakeFiles/miniftpd.dir/clean
 
 CMakeFiles/miniftpd.dir/depend:
-	cd /tmp/tmp.dzXhTas3YE/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.dzXhTas3YE /tmp/tmp.dzXhTas3YE /tmp/tmp.dzXhTas3YE/cmake-build-debug /tmp/tmp.dzXhTas3YE/cmake-build-debug /tmp/tmp.dzXhTas3YE/cmake-build-debug/CMakeFiles/miniftpd.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/s/my_work_space/miniftpd/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/s/my_work_space/miniftpd /home/s/my_work_space/miniftpd /home/s/my_work_space/miniftpd/cmake-build-debug /home/s/my_work_space/miniftpd/cmake-build-debug /home/s/my_work_space/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/miniftpd.dir/depend
 

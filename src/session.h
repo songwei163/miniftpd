@@ -27,6 +27,7 @@ typedef struct session {
     int child_fd;
     //FTP协议状态
     bool is_ascii;
+    char *rnfr_name;
 } session_t;
 
 void begin_session (session_t *sess);

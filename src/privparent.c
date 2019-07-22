@@ -147,9 +147,9 @@ static void privop_pasv_active (session_t *sess)
 
 static void privop_pasv_listen (session_t *sess)
 {
-  //char ip[16] = {0};
-  //getlocalip (ip);
-  char ip[] = "192.168.43.67";
+  char ip[16] = {0};
+  getlocalip (ip);
+  //char ip[] = "192.168.52.128";
 
 
   sess->pasv_listen_fd = tcp_server (ip, 0);
