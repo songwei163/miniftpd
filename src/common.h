@@ -49,7 +49,7 @@
 #define MAX_ARG 1024
 #define MAX_BUFFER_SIZE 1024
 
-#define MINIFTP_CONF "miniftpd.conf"
+#define MINIFTP_CONF "../config/miniftpd.conf"
 
 #define LISTENQ     1024
 
