@@ -2,8 +2,8 @@
 // Created by s on 19-5-14.
 //
 
-#ifndef _STR_H_
-#define _STR_H_
+#ifndef __STR_H__
+#define __STR_H__
 
 // 以下都为字符串工具函数
 
@@ -21,7 +21,6 @@ void str_trim_crlf (char *str);
  * @right - 分割后右边的字符串
  * @c - 分割字符
  */
-
 void str_split (const char *str, char *left, char *right, char c);
 
 /**
@@ -51,4 +50,4 @@ long long str_to_longlong (const char *str);
  */
 unsigned int str_octal_to_uint (const char *str);
 
-#endif //_STR_H_
+#endif /* __STR_H__ */

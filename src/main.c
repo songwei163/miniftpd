@@ -1,3 +1,7 @@
+//
+// Created by s on 19-5-14.
+//
+
 #include "common.h"
 #include "sysutil.h"
 #include "session.h"
@@ -23,12 +27,9 @@ int main (int argc, char *argv[])
     char str3[] = "avxcAsada";
     str_upper(str3);
     printf("%s\n", str3);
-
     long long result = str_to_longlong("12345678901234");
     printf("%lld\n", result);
-
     printf("result=%d\n", str_octal_to_uint ("665"));
-
   */
 
 
@@ -67,17 +68,8 @@ int main (int argc, char *argv[])
 
   int listenfd = tcp_server (tunable_listen_address, tunable_listen_port);
 
-  session_t sess = {
-      /*控制连接*/
-      0, -1, "", "", "",
-      /*数据连接*/
-      NULL, -1, -1,
-      /*父子进程通道*/
-      -1, -1, false,
-      /*ftp协议状态*/
-      false,0,
-  };
-
+  session_t sess = {-1, -1, "", "", "", -1, -1, 0, NULL, -1,
+                    -1, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0};
   int connfd = 0;
   pid_t pid;
   while (1)
@@ -109,3 +101,7 @@ int main (int argc, char *argv[])
 #endif
   return 0;
 }
+
+session_t sess = {-1, -1, "", "", "", -1, -1, 0, NULL, -1,
+                  -1, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0};
+	

@@ -7,12 +7,9 @@
 
 void str_trim_crlf (char *str)
 {
-  char *p = &str[strlen (str) - 1];
+  char *p = str + (strlen (str) - 1);
   while (*p == '\r' || *p == '\n')
-    {
-      *p-- = '\0';
-    }
-
+    *p-- = '\0';
 }
 
 void str_split (const char *str, char *left, char *right, char c)
@@ -21,7 +18,6 @@ void str_split (const char *str, char *left, char *right, char c)
   if (p == NULL)
     {
       strcpy (left, str);
-
     }
   else
     {
@@ -32,114 +28,72 @@ void str_split (const char *str, char *left, char *right, char c)
 
 int str_all_space (const char *str)
 {
-  while (*str)
+  const char *p = str;
+  while (*p)
     {
-      if (!isspace (*str))
+      if (isspace(*p) == 0)
         {
           return 0;
         }
-      ++str;
+      ++p;
     }
   return 1;
 }
 
 void str_upper (char *str)
 {
-  while (*str != '\0')
+  char *p = str;
+  while (*p)
     {
-      *str = toupper (*str);
-      ++str;
+      *p = toupper (*p);
+      ++p;
     }
 }
 
 long long str_to_longlong (const char *str)
 {
+  // 有些可能不含有这个函数，需要自己重新编写
   //return atoll(str);
+  if (str == NULL)
+    return 0;
   long long result = 0;
   long long mult = 1;
   unsigned int len = strlen (str);
   int i;
   if (len > 15)
-    {
-      return 0;
-
-    }
-  /*
-for (i =0; i < len; ++i)
-  {
-    char ch = str[len - (i + 1)];
-    long long val;
-    if (ch < '0' || ch > '9')
-      {
-        return 0;
-      }
-    val = ch - '0';
-    val *= mult;
-    result += val;
-    mult *= 10;
-  }
-   */
-
+    return 0;
   for (i = len - 1; i >= 0; --i)
     {
       char ch = str[i];
       long long val;
       if (ch < '0' || ch > '9')
-        {
-          return 0;
-        }
+        return 0;
       val = ch - '0';
       val *= mult;
-      result += val;
       mult *= 10;
+      result += val;
     }
   return result;
 }
 
 unsigned int str_octal_to_uint (const char *str)
 {
-  /*
   unsigned int result = 0;
-  int seen_non_zero_digit = 0;
-
-  while (*str)
+  const char *p = str;
+  int non_zero_digit = 0;
+  while (*p)
     {
-      int digit = *str;
-      if (!isdigit (digit) || digit > '7')
+      if (*p < '0' || *p > '7')
+        return 0;
+      if (*p != 0)
+        non_zero_digit = 1;
+      if (non_zero_digit != 0)
         {
-          break;
+          unsigned int val = *p - '0';
+          result = result << 3;
+          result += val;
         }
-      if (digit != '0')
-        {
-          seen_non_zero_digit = 1;
-        }
-      if (seen_non_zero_digit)
-        {
-          result <<= 3;
-          result += (digit - '0');
-        }
-      ++str;
-    }
-  return result;
-   */
-  unsigned int result = 0;
-  int seen_non_zero_digit = 0;
-
-  while (*str)
-    {
-      int digit = *str;
-      if (!isdigit(digit) || digit > '7')
-        break;
-
-      if (digit != '0')
-        seen_non_zero_digit = 1;
-
-      if (seen_non_zero_digit)
-        {
-          result <<= 3;
-          result += (digit - '0');
-        }
-      str++;
+      ++p;
     }
   return result;
 }

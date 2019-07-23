@@ -25,6 +25,7 @@
 #include <sys/ioctl.h>
 #include <sys/syscall.h>
 #include <netdb.h>
+#include <sys/sendfile.h>
 
 //shdows password
 #include <pwd.h>
@@ -49,4 +50,16 @@
 #define MAX_BUFFER_SIZE 1024
 
 #define MINIFTP_CONF "miniftpd.conf"
+
+#define LISTENQ     1024
+
+#define MAX_COMMAND_LINE 1024
+#define MAX_COMMAND     32
+#define MAX_ARG         1024
+
+#define MAX_LINE         1024
+#define HALF_YEAR_SEC    182*24*3600
+
+#
+
 #endif //_COMMON_H_

@@ -2,11 +2,11 @@
 // Created by s on 19-5-14.
 //
 
-#ifndef _PRIVPARENT_H_
-#define _PRIVPARENT_H_
+#ifndef __PRIVPARENT_H__
+#define __PRIVPARENT_H__
 
 #include "session.h"
 
 void handle_parent (session_t *sess);
 
-#endif //_PRIVPARENT_H_
+#endif /* __PRIVPARENT_H__ */

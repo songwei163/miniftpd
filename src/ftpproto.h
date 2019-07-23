@@ -2,11 +2,21 @@
 // Created by s on 19-5-14.
 //
 
-#ifndef _FTPPROTO_H_
-#define _FTPPROTO_H_
+#ifndef __FTPPROTO_H__
+#define __FTPPROTO_H__
 
 #include "session.h"
 
-void handle_child (session_t *sess);
+typedef struct ftpcmd {
+    const char *cmd;
+    void (*cmd_func) (session_t *sess);
+} ftpcmd_t;
 
-#endif //_FTPPROTO_H_
+void handle_child (session_t *sess);
+int list_common (session_t *sess, int detail);
+void upload_common (session_t *sess, int is_append);
+
+void ftp_relply (session_t *sess, int status, const char *text);
+void ftp_lrelply (session_t *sess, int status, const char *text);
+
+#endif /*__FTPPROTO_H__ */

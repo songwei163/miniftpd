@@ -57,7 +57,6 @@ CMakeFiles/miniftpd.dir/src/sysutil.c.o: ../src/common.h
 CMakeFiles/miniftpd.dir/src/sysutil.c.o: ../src/sysutil.c
 CMakeFiles/miniftpd.dir/src/sysutil.c.o: ../src/sysutil.h
 
-CMakeFiles/miniftpd.dir/src/tunable.c.o: ../src/common.h
 CMakeFiles/miniftpd.dir/src/tunable.c.o: ../src/tunable.c
 CMakeFiles/miniftpd.dir/src/tunable.c.o: ../src/tunable.h
 

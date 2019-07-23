@@ -1,17 +1,18 @@
 //
-// Created by s on 19-7-18.
+// Created by s on 19-5-14.
 //
-#include "privparent.h"
+
 #include "privsock.h"
 #include "sysutil.h"
-#include "tunable.h"
+#include "common.h"
 
 void priv_sock_init (session_t *sess)
 {
   int sockfds[2];
-  if (socketpair (PF_UNIX, SOCK_STREAM, 0, sockfds) < 0)
-    ERR_EXIT("socketpair");
-
+  if (socketpair (AF_LOCAL, SOCK_STREAM, 0, sockfds) < 0)
+    {
+      ERR_EXIT("setsockpair");
+    }
   sess->parent_fd = sockfds[0];
   sess->child_fd = sockfds[1];
 }
@@ -23,7 +24,6 @@ void priv_sock_close (session_t *sess)
       close (sess->parent_fd);
       sess->parent_fd = -1;
     }
-
   if (sess->child_fd != -1)
     {
       close (sess->child_fd);
@@ -47,38 +47,41 @@ void priv_sock_set_child_context (session_t *sess)
       close (sess->parent_fd);
       sess->parent_fd = -1;
     }
+
 }
 
+// FTP service process -> nobody process
 void priv_sock_send_cmd (int fd, char cmd)
 {
   int ret;
   ret = writen (fd, &cmd, sizeof (cmd));
   if (ret != sizeof (cmd))
     {
-      fprintf (stderr, "priv_sock_send_cmd error\n");
+      fprintf (stderr, "priv_sock_send_cmd error\n");;
       exit (EXIT_FAILURE);
     }
 }
 
+// nobody process get cmd
 char priv_sock_get_cmd (int fd)
 {
-  char res;
-  int ret;
-  ret = readn (fd, &res, sizeof (res));
+  char cmd;
+  int ret = readn (fd, &cmd, sizeof (cmd));
   if (ret == 0)
     {
-      printf ("ftp process exit\n");
+      // nobody process exit
+      printf ("ftp process exit.\n");
       exit (EXIT_SUCCESS);
     }
-  if (ret != sizeof (res))
+  if (ret != sizeof (cmd))
     {
       fprintf (stderr, "priv_sock_get_cmd error\n");
       exit (EXIT_FAILURE);
     }
-
-  return res;
+  return cmd;
 }
 
+// nobody process -> FTP service process
 void priv_sock_send_result (int fd, char res)
 {
   int ret;
@@ -90,6 +93,7 @@ void priv_sock_send_result (int fd, char res)
     }
 }
 
+// FTP service process get result
 char priv_sock_get_result (int fd)
 {
   char res;
@@ -100,7 +104,6 @@ char priv_sock_get_result (int fd)
       fprintf (stderr, "priv_sock_get_result error\n");
       exit (EXIT_FAILURE);
     }
-
   return res;
 }
 
@@ -110,28 +113,29 @@ void priv_sock_send_int (int fd, int the_int)
   ret = writen (fd, &the_int, sizeof (the_int));
   if (ret != sizeof (the_int))
     {
-      fprintf (stderr, "priv_sock_send_int error\n");
+      fprintf (stderr, "priv_sock_send_result error\n");
       exit (EXIT_FAILURE);
     }
 }
 
 int priv_sock_get_int (int fd)
 {
-  int the_int;
+  int res;
   int ret;
-  ret = readn (fd, &the_int, sizeof (the_int));
-  if (ret != sizeof (the_int))
+  ret = readn (fd, &res, sizeof (res));
+  if (ret != sizeof (res))
     {
-      fprintf (stderr, "priv_sock_get_int error\n");
+      fprintf (stderr, "priv_sock_get_result error\n");
       exit (EXIT_FAILURE);
     }
-
-  return the_int;
+  return res;
 }
 
 void priv_sock_send_buf (int fd, const char *buf, unsigned int len)
 {
-  priv_sock_send_int (fd, (int) len);
+  // send the str len
+  priv_sock_send_int (fd, len);
+  // send the str
   int ret = writen (fd, buf, len);
   if (ret != (int) len)
     {

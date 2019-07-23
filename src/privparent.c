@@ -3,71 +3,66 @@
 //
 
 #include "privparent.h"
+#include "common.h"
 #include "privsock.h"
-#include "sysutil.h"
 #include "tunable.h"
+#include "sysutil.h"
 
-static void privop_pasv_get_data_sock (session_t *sess);
-static void privop_pasv_active (session_t *sess);
-static void privop_pasv_listen (session_t *sess);
-static void privop_pasv_accept (session_t *sess);
+void privop_pasv_get_data_sock (session_t *sess);
+void privop_pasv_active (session_t *sess);
+void privop_pasv_listen (session_t *sess);
+void privop_pasv_accept (session_t *sess);
 
-int capset(cap_user_header_t hdrp, const cap_user_data_t datap)
+int capset (cap_user_header_t hdrp, const cap_user_data_t datap)
 {
-  return syscall(__NR_capset, hdrp, datap);
+  return syscall (__NR_capset, hdrp, datap);
 }
 
-
-void minimize_privilege(void)
+void minimize_privilege ()
 {
-  struct passwd *pw = getpwnam("nobody");
-  if (pw == NULL)
-    return;
+  struct __user_cap_header_struct cap_header;
+  struct __user_cap_data_struct cap_data;
 
-  if (setegid(pw->pw_gid) < 0)
-    ERR_EXIT("setegid");
-  if (seteuid(pw->pw_uid) < 0)
-    ERR_EXIT("seteuid");
-  /*
-   typedef struct __user_cap_header_struct {
-       __u32 version;
-       int pid;
-   } *cap_user_header_t;
+  memset (&cap_header, 0, sizeof (cap_header));
+  memset (&cap_data, 0, sizeof (cap_data));
 
-   typedef struct __user_cap_data_struct {
-       __u32 effective;
-       __u32 permitted;
-       __u32 inheritable;
-   } *cap_user_data_t;
-   */
-  struct __user_cap_header_struct head;
-  struct __user_cap_data_struct data;
+  cap_header.version = _LINUX_CAPABILITY_VERSION_2;
+  cap_header.pid = 0;
 
-  memset(&head, 0, sizeof(head));
-  memset(&data, 0, sizeof(data));
-  head.version = _LINUX_CAPABILITY_VERSION_1;
-  //head.version = _LINUX_CAPABILITY_VERSION_2;
-  head.pid = 0;
+  __u32 cap_mask = 0;
+  cap_mask |= (1 << CAP_NET_BIND_SERVICE);
+  cap_data.effective = cap_data.permitted = cap_mask;
+  cap_data.inheritable = 0;
 
-  __u32 mask = 0;
-  mask |= (1 << CAP_NET_BIND_SERVICE);
-  data.effective = data.permitted = mask;
-  data.inheritable = 0;
-
-  capset(&head, &data);
+  capset (&cap_header, &cap_data);
 }
 
 void handle_parent (session_t *sess)
 {
+  struct passwd *pw = getpwnam ("nobody");
+  if (pw == NULL)
+    return;
+
+  if (setegid (pw->pw_gid) < 0)
+    {
+      ERR_EXIT("setegid");
+    }
+
+  if (seteuid (pw->pw_uid) < 0)
+    {
+      ERR_EXIT("seteuid");
+    }
+
+  // add cur process bind 20 port privilege
   minimize_privilege ();
 
   char cmd;
   while (1)
     {
-      //read(sess->parent_fd, &cmd, 1);
+      // 读取来自子进程的数据
       cmd = priv_sock_get_cmd (sess->parent_fd);
+      //printf("cmd: %d\n", (int)cmd);
       // 解析内部命令
-      // 处理内部命令
       switch (cmd)
         {
           case PRIV_SOCK_GET_DATA_SOCK:
@@ -82,27 +77,16 @@ void handle_parent (session_t *sess)
           case PRIV_SOCK_PASV_ACCEPT:
             privop_pasv_accept (sess);
           break;
-
         }
+
     }
 }
 
-static void privop_pasv_get_data_sock (session_t *sess)
+void privop_pasv_get_data_sock (session_t *sess)
 {
-  /*
-  nobody进程接收PRIV_SOCK_GET_DATA_SOCK命令
-进一步接收一个整数，也就是port
-接收一个字符串，也就是ip
-
-fd = socket
-bind(20)
-connect(ip, port);
-
-OK
-send_fd
-BAD
-*/
+  // recv short,then ip
   unsigned short port = (unsigned short) priv_sock_get_int (sess->parent_fd);
+
   char ip[16] = {0};
   priv_sock_recv_buf (sess->parent_fd, ip, sizeof (ip));
 
@@ -112,25 +96,29 @@ BAD
   addr.sin_port = htons (port);
   addr.sin_addr.s_addr = inet_addr (ip);
 
-  int fd = tcp_client (20);
-  if (fd == -1)
+  //printf("address ip: %s\n", ip);
+
+  int data_fd = tcp_client (20);
+  if (data_fd == -1)
     {
-      priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_BAD);
-      return;
-    }
-  if (connect_timeout (fd, &addr, tunable_connect_timeout) < 0)
-    {
-      close (fd);
+      printf ("tcp_client error data fd: %d\n", data_fd);
       priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_BAD);
       return;
     }
 
+  if (connect_timeout (data_fd, &addr, tunable_connect_timeout) < 0)
+    {
+      printf ("connect timeout\n");
+      close (data_fd);
+      priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_BAD);
+      return;
+    }
   priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_OK);
-  priv_sock_send_fd (sess->parent_fd, fd);
-  close (fd);
+  priv_sock_send_fd (sess->parent_fd, data_fd);
+  close (data_fd);
 }
 
-static void privop_pasv_active (session_t *sess)
+void privop_pasv_active (session_t *sess)
 {
   int active;
   if (sess->pasv_listen_fd != -1)
@@ -141,43 +129,40 @@ static void privop_pasv_active (session_t *sess)
     {
       active = 0;
     }
-
   priv_sock_send_int (sess->parent_fd, active);
 }
 
-static void privop_pasv_listen (session_t *sess)
+void privop_pasv_listen (session_t *sess)
 {
-  char ip[16] = {0};
-  getlocalip (ip);
-  //char ip[] = "192.168.52.128";
+  char local_ip[16] = {0};
+  getlocalip (local_ip);
 
-
-  sess->pasv_listen_fd = tcp_server (ip, 0);
-  struct sockaddr_in addr;
-  socklen_t addrlen = sizeof (addr);
-  if (getsockname (sess->pasv_listen_fd, (struct sockaddr *) &addr, &addrlen) < 0)
+  sess->pasv_listen_fd = tcp_server (local_ip, 0);
+  struct sockaddr_in sa_in;
+  socklen_t sa_in_len = sizeof (sa_in);
+  if (getsockname (sess->pasv_listen_fd, (struct sockaddr *) &sa_in, &sa_in_len) < 0)
     {
       ERR_EXIT("getsockname");
     }
 
-  unsigned short port = ntohs (addr.sin_port);
+  unsigned short port = ntohs (sa_in.sin_port);
 
   priv_sock_send_int (sess->parent_fd, (int) port);
 }
 
-static void privop_pasv_accept (session_t *sess)
+void privop_pasv_accept (session_t *sess)
 {
   int fd = accept_timeout (sess->pasv_listen_fd, NULL, tunable_accept_timeout);
   close (sess->pasv_listen_fd);
   sess->pasv_listen_fd = -1;
-
   if (fd == -1)
     {
       priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_BAD);
-      return;
     }
-
-  priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_OK);
-  priv_sock_send_fd (sess->parent_fd, fd);
-  close (fd);
+  else
+    {
+      priv_sock_send_result (sess->parent_fd, PRIV_SOCK_RESULT_OK);
+      priv_sock_send_fd (sess->parent_fd, fd);
+      close (fd);
+    }
 }
