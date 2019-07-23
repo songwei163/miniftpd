@@ -26,7 +26,7 @@
 #include <sys/syscall.h>
 #include <netdb.h>
 #include <sys/sendfile.h>
-
+#include <sys/wait.h>
 //shdows password
 #include <pwd.h>
 #include <shadow.h>
@@ -49,7 +49,7 @@
 #define MAX_ARG 1024
 #define MAX_BUFFER_SIZE 1024
 
-#define MINIFTP_CONF "miniftpd.conf"
+#define MINIFTP_CONF "../config/miniftpd.conf"
 
 #define LISTENQ     1024
 

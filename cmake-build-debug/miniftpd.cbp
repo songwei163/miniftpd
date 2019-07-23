@@ -89,6 +89,12 @@
 		<Unit filename="/home/s/my_work_space/miniftpd/src/ftpproto.h">
 			<Option target="miniftpd"/>
 		</Unit>
+		<Unit filename="/home/s/my_work_space/miniftpd/src/hash.c">
+			<Option target="miniftpd"/>
+		</Unit>
+		<Unit filename="/home/s/my_work_space/miniftpd/src/hash.h">
+			<Option target="miniftpd"/>
+		</Unit>
 		<Unit filename="/home/s/my_work_space/miniftpd/src/main.c">
 			<Option target="miniftpd"/>
 		</Unit>

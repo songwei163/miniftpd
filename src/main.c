@@ -1,107 +1,218 @@
-//
-// Created by s on 19-5-14.
-//
-
 #include "common.h"
 #include "sysutil.h"
 #include "session.h"
 #include "str.h"
-#include "parseconf.h"
 #include "tunable.h"
+#include "parseconf.h"
 #include "ftpproto.h"
+#include "ftpcodes.h"
+#include "hash.h"
 
-int main (int argc, char *argv[])
+extern session_t *p_sess;
+static unsigned int s_children;
+
+static hash_t *s_ip_count_hash;
+static hash_t *s_pid_ip_hash;
+
+void check_limits (session_t *sess);
+void handle_sigchld (int sig);
+unsigned int hash_func (unsigned int buckets, void *key);
+
+unsigned int handle_ip_count (void *ip);
+void drop_ip_count (void *ip);
+
+int main (void)
 {
-  //list_common ();
-
-
-  /*å­—ç¬¦ä¸²æ¨¡å—æµ‹è¯•
-    //char *str1="               a b";
-    char* str2 = "               ";
-    if (str_all_space(str2)) {
-        printf("str2 all space\n");
-    }
-    else {
-        printf("str2 not all space");
-    }
-    char str3[] = "avxcAsada";
-    str_upper(str3);
-    printf("%s\n", str3);
-    long long result = str_to_longlong("12345678901234");
-    printf("%lld\n", result);
-    printf("result=%d\n", str_octal_to_uint ("665"));
-  */
-
-
-
-
   parseconf_load_file (MINIFTP_CONF);
-  printf ("tunable_pasv_enable = %u\n", tunable_pasv_enable);
-  printf ("tunable_port_enable = %u\n", tunable_port_enable);
+  // daemon (0, 0);
 
-  printf ("tunable_listen_port = %u\n", tunable_listen_port);
-  printf ("tunable_max_clients = %u\n", tunable_max_clients);
-  printf ("tunable_max_per_ip = %u\n", tunable_max_per_ip);
-  printf ("tunable_accept_timeout = %u\n", tunable_accept_timeout);
-  printf ("tunable_connect_timeout = %u\n", tunable_connect_timeout);
-  printf ("tunable_idle_session_timeout = %u\n", tunable_idle_session_timeout);
-  printf ("tunable_data_connection_timeout = %u\n", tunable_data_connection_timeout);
-  printf ("tunable_local_umask = 0%o\n", tunable_local_umask);
-  printf ("tunable_upload_max_rate = %u\n", tunable_upload_max_rate);
-  printf ("tunable_download_max_rate = %u\n", tunable_download_max_rate);
+  printf ("tunable_pasv_enable=%d\n", tunable_pasv_enable);
+  printf ("tunable_port_enable=%d\n", tunable_port_enable);
+
+  printf ("tunable_listen_port=%u\n", tunable_listen_port);
+  printf ("tunable_max_clients=%u\n", tunable_max_clients);
+  printf ("tunable_max_per_ip=%u\n", tunable_max_per_ip);
+  printf ("tunable_accept_timeout=%u\n", tunable_accept_timeout);
+  printf ("tunable_connect_timeout=%u\n", tunable_connect_timeout);
+  printf ("tunable_idle_session_timeout=%u\n", tunable_idle_session_timeout);
+  printf ("tunable_data_connection_timeout=%u\n", tunable_data_connection_timeout);
+  printf ("tunable_local_umask=0%o\n", tunable_local_umask);
+  printf ("tunable_upload_max_rate=%u\n", tunable_upload_max_rate);
+  printf ("tunable_download_max_rate=%u\n", tunable_download_max_rate);
+
   if (tunable_listen_address == NULL)
-    {
-      printf ("tunable_listen_address = NULL");
-    }
+    printf ("tunable_listen_address=NULL\n");
   else
-    {
-      printf ("tunable_listen_address = %s\n", tunable_listen_address);
-    }
+    printf ("tunable_listen_address=%s\n", tunable_listen_address);
 
-#if 1
-  /*åˆ¤æ–­ç¨‹åºæ˜¯å¦ä»¥rootç”¨æˆ·æ‰§è¡Œ*/
   if (getuid () != 0)
     {
-      fprintf (stderr, "%s: must be started as root\n", basename (argv[0]));
+      fprintf (stderr, "miniftpd: must be started as root\n");
       exit (EXIT_FAILURE);
     }
+  session_t sess = {
+      /* ¿ØÖÆÁ¬½Ó */
+      0, -1, "", "", "",
+      /* Êı¾İÁ¬½Ó */
+      NULL, -1, -1, 0,
+      /* ÏŞËÙ */
+      0, 0, 0, 0,
+      /* ¸¸×Ó½ø³ÌÍ¨µÀ */
+      -1, -1,
+      /* FTPĞ­Òé×´Ì¬ */
+      0, 0, NULL, 0,
+      /* Á¬½ÓÊıÏŞÖÆ */
+      0, 0
+  };
 
+  p_sess = &sess;
+
+  sess.bw_upload_rate_max = tunable_upload_max_rate;
+  sess.bw_download_rate_max = tunable_download_max_rate;
+
+  s_ip_count_hash = hash_alloc (256, hash_func);
+  s_pid_ip_hash = hash_alloc (256, hash_func);
+
+  signal (SIGCHLD, handle_sigchld);
   int listenfd = tcp_server (tunable_listen_address, tunable_listen_port);
-
-  session_t sess = {-1, -1, "", "", "", -1, -1, 0, NULL, -1,
-                    -1, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0};
-  int connfd = 0;
+  int conn;
   pid_t pid;
+  struct sockaddr_in addr;
+
   while (1)
     {
-      connfd = accept_timeout (listenfd, NULL, 0);
-      if (connfd == -1)
-        {
-          ERR_EXIT ("accept_timeout");
-        }
+      conn = accept_timeout (listenfd, &addr, 0);
+      if (conn == -1)
+        ERR_EXIT("accept_tinmeout");
+
+      unsigned int ip = addr.sin_addr.s_addr;
+
+      ++s_children;
+      sess.num_clients = s_children;
+      sess.num_this_ip = handle_ip_count (&ip);
 
       pid = fork ();
       if (pid == -1)
         {
-          ERR_EXIT ("fork");
+          --s_children;
+          ERR_EXIT("fork");
         }
+
       if (pid == 0)
         {
-          /*æ´¾ç”Ÿå­è¿›ç¨‹æœåŠ¡*/
           close (listenfd);
-          sess.ctrl_fd = connfd;
+          sess.ctrl_fd = conn;
+          check_limits (&sess);
+          signal (SIGCHLD, SIG_IGN);
           begin_session (&sess);
         }
       else
         {
-          close (connfd);
-        }
+          hash_add_entry (s_pid_ip_hash, &pid, sizeof (pid),
+                          &ip, sizeof (unsigned int));
 
+          close (conn);
+        }
     }
-#endif
-  return 0;
+  //return 0;
 }
 
-session_t sess = {-1, -1, "", "", "", -1, -1, 0, NULL, -1,
-                  -1, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0};
-	
+void check_limits (session_t *sess)
+{
+  if (tunable_max_clients > 0 && sess->num_clients > tunable_max_clients)
+    {
+      ftp_relply (sess, FTP_TOO_MANY_USERS,
+                  "There are too many connected users, please try later.");
+
+      exit (EXIT_FAILURE);
+    }
+
+  if (tunable_max_per_ip > 0 && sess->num_this_ip > tunable_max_per_ip)
+    {
+      ftp_relply (sess, FTP_IP_LIMIT,
+                  "There are too many connections from your internet address.");
+
+      exit (EXIT_FAILURE);
+    }
+}
+
+void handle_sigchld (int sig)
+{
+  // µ±Ò»¸ö¿Í»§¶ËÍË³öµÄÊ±ºò£¬ÄÇÃ´¸Ã¿Í»§¶Ë¶ÔÓ¦ipµÄÁ¬½ÓÊıÒª¼õ1£¬
+  // ´¦Àí¹ı³ÌÊÇÕâÑùµÄ£¬Ê×ÏÈÊÇ¿Í»§¶ËÍË³öµÄÊ±ºò£¬
+  // ¸¸½ø³ÌĞèÒªÖªµÀÕâ¸ö¿Í»§¶ËµÄip£¬Õâ¿ÉÒÔÍ¨¹ıÔÚs_pid_ip_hash²éÕÒµÃµ½£¬
+
+
+  pid_t pid;
+  while ((pid = waitpid (-1, NULL, WNOHANG)) > 0)
+    {
+      --s_children;
+      unsigned int *ip = hash_lookup_entry (s_pid_ip_hash, &pid, sizeof (pid));
+      if (ip == NULL)
+        {
+          continue;
+        }
+
+      drop_ip_count (ip);
+      hash_free_entry (s_pid_ip_hash, &pid, sizeof (pid));
+    }
+
+}
+
+unsigned int hash_func (unsigned int buckets, void *key)
+{
+  unsigned int *number = (unsigned int *) key;
+
+  return (*number) % buckets;
+}
+
+unsigned int handle_ip_count (void *ip)
+{
+  // µ±Ò»¸ö¿Í»§µÇÂ¼µÄÊ±ºò£¬ÒªÔÚs_ip_count_hash¸üĞÂÕâ¸ö±íÖĞµÄ¶ÔÓ¦±íÏî,
+  // ¼´¸Ãip¶ÔÓ¦µÄÁ¬½ÓÊıÒª¼Ó1£¬Èç¹ûÕâ¸ö±íÏî»¹²»´æÔÚ£¬ÒªÔÚ±íÖĞÌí¼ÓÒ»Ìõ¼ÇÂ¼£¬
+  // ²¢ÇÒ½«ip¶ÔÓ¦µÄÁ¬½ÓÊıÖÃ1¡£
+
+  unsigned int count;
+  unsigned int *p_count = (unsigned int *) hash_lookup_entry (s_ip_count_hash,
+                                                              ip, sizeof (unsigned int));
+  if (p_count == NULL)
+    {
+      count = 1;
+      hash_add_entry (s_ip_count_hash, ip, sizeof (unsigned int),
+                      &count, sizeof (unsigned int));
+    }
+  else
+    {
+      count = *p_count;
+      ++count;
+      *p_count = count;
+    }
+
+  return count;
+}
+
+void drop_ip_count (void *ip)
+{
+  // µÃµ½ÁËip½ø¶øÎÒÃÇ¾Í¿ÉÒÔÔÚs_ip_count_hash±íÖĞÕÒµ½¶ÔÓ¦µÄÁ¬½ÓÊı£¬½ø¶ø½øĞĞ¼õ1²Ù×÷¡£
+
+  unsigned int count;
+  unsigned int *p_count = (unsigned int *) hash_lookup_entry (s_ip_count_hash,
+                                                              ip, sizeof (unsigned int));
+  if (p_count == NULL)
+    {
+      return;
+    }
+
+  count = *p_count;
+  if (count <= 0)
+    {
+      return;
+    }
+  --count;
+  *p_count = count;
+
+  if (count == 0)
+    {
+      hash_free_entry (s_ip_count_hash, ip, sizeof (unsigned int));
+    }
+}

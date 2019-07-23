@@ -15,6 +15,7 @@ add_executable(miniftpd
         src/str.c src/str.h
         src/tunable.c src/tunable.h
         src/parseconf.c src/parseconf.h
-        src/privsock.c src/privsock.h)
+        src/privsock.c src/privsock.h
+        src/hash.c src/hash.h)
 
 target_link_libraries(miniftpd crypt)

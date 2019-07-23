@@ -5,10 +5,12 @@
 #ifndef __TUNABLE_H__
 #define __TUNABLE_H__
 
+#include <stdbool.h>
+
 // 配置文件读取相关
 
-extern int tunable_pasv_enable;
-extern int tunable_port_enable;
+extern bool tunable_pasv_enable;
+extern bool tunable_port_enable;
 extern unsigned int tunable_listen_port;
 extern unsigned int tunable_max_clients;
 extern unsigned int tunable_max_per_ip;

@@ -150,6 +150,33 @@ src/ftpproto.c.s:
 	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/ftpproto.c.s
 .PHONY : src/ftpproto.c.s
 
+src/hash.o: src/hash.c.o
+
+.PHONY : src/hash.o
+
+# target to build an object file
+src/hash.c.o:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/hash.c.o
+.PHONY : src/hash.c.o
+
+src/hash.i: src/hash.c.i
+
+.PHONY : src/hash.i
+
+# target to preprocess a source file
+src/hash.c.i:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/hash.c.i
+.PHONY : src/hash.c.i
+
+src/hash.s: src/hash.c.s
+
+.PHONY : src/hash.s
+
+# target to generate assembly for a file
+src/hash.c.s:
+	$(MAKE) -f CMakeFiles/miniftpd.dir/build.make CMakeFiles/miniftpd.dir/src/hash.c.s
+.PHONY : src/hash.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -378,6 +405,9 @@ help:
 	@echo "... src/ftpproto.o"
 	@echo "... src/ftpproto.i"
 	@echo "... src/ftpproto.s"
+	@echo "... src/hash.o"
+	@echo "... src/hash.i"
+	@echo "... src/hash.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

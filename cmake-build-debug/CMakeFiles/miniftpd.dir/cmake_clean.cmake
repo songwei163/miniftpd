@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/miniftpd.dir/src/tunable.c.o"
   "CMakeFiles/miniftpd.dir/src/parseconf.c.o"
   "CMakeFiles/miniftpd.dir/src/privsock.c.o"
+  "CMakeFiles/miniftpd.dir/src/hash.c.o"
   "miniftpd.pdb"
   "miniftpd"
 )
