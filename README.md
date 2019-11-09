@@ -57,52 +57,52 @@ socket、I/O复用、进程间通信、HashTable
 
   原因很简单，在多线程或I/O复用的情况下，当前目录时共享的，无法根据每一个连接来用于自己的当前目录，也就是当前用户目录的切换会影响其他用户。
   
-    #### 项目中遇到的关键部分，值得记录下来
-  
-    ##### 账户验证
-  
-    对于Linux端的ftp服务而言，账户即为Linux端的用户。
-  
-    1.以root用户权限启动ftp服务
-  
-    2.获取客户端的验证信息
-  
-    3.从系统获取用户名对应加密后的密码
-  
-    4.对客户端发过来的密码进行对应的加密，并比对
-  
-    * 如何验证是否以root用户启动服务
-  
-      一般root用户的uid为0。
-  
-      ```c
-      if(getuid() != 0)
-      {
-          fprintf(stderr, "miniftp must start be as root!\n");
-      }
-      ```
-  
-    * 获取系统中用户名对应的加密后的密码（这个操作也要求有root权限）
-  
-      ```C
-      struct passwd *getpwnam(const char* name);
-      struct passwd *getpwuid(uid_t uid);
-      ```
-  
-    * 对客户端发过来的密码进行对应的加密，并比对
-  
-      拿到阴影口令文件
-  
-      ```C
-      struct spwd *getspnam(const char* name);
-      ```
-  
-      当我们获得了spwd后，需要对客户端发来的passwd进行加密。
-  
-      ```C
-      char* encrypted_pw = crypt(sess->arg, sp->sp_pwdp);
-      strcmp(encrypted_pw, sp->sp_pwdp); 	//比对
-      ```
-  
-      这里简单提一下，为了安全考虑，Linux的加密口令是经单向加密算法处理过的用户口令副本。因此该算法是单向的，从而不能从加密结果猜测到原来的口令。
-  
+#### 项目中遇到的关键部分，值得记录下来
+
+##### 账户验证
+
+对于Linux端的ftp服务而言，账户即为Linux端的用户。
+
+1.以root用户权限启动ftp服务
+
+2.获取客户端的验证信息
+
+3.从系统获取用户名对应加密后的密码
+
+4.对客户端发过来的密码进行对应的加密，并比对
+
+* 如何验证是否以root用户启动服务
+
+  一般root用户的uid为0。
+
+  ```c
+  if(getuid() != 0)
+  {
+      fprintf(stderr, "miniftp must start be as root!\n");
+  }
+  ```
+
+* 获取系统中用户名对应的加密后的密码（这个操作也要求有root权限）
+
+  ```C
+  struct passwd *getpwnam(const char* name);
+  struct passwd *getpwuid(uid_t uid);
+  ```
+
+* 对客户端发过来的密码进行对应的加密，并比对
+
+  拿到阴影口令文件
+
+  ```C
+  struct spwd *getspnam(const char* name);
+  ```
+
+  当我们获得了spwd后，需要对客户端发来的passwd进行加密。
+
+  ```C
+  char* encrypted_pw = crypt(sess->arg, sp->sp_pwdp);
+  strcmp(encrypted_pw, sp->sp_pwdp); 	//比对
+  ```
+
+  这里简单提一下，为了安全考虑，Linux的加密口令是经单向加密算法处理过的用户口令副本。因此该算法是单向的，从而不能从加密结果猜测到原来的口令。
+
