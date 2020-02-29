@@ -1,3 +1,0 @@
-C:/Users/S/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/miniftpd.dir
-C:/Users/S/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/S/CLionProjects/miniftpd/cmake-build-debug/CMakeFiles/rebuild_cache.dir

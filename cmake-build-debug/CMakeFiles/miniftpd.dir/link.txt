@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\miniftpd.dir/objects.a
-C:\mingw64\bin\ar.exe cr CMakeFiles\miniftpd.dir/objects.a @CMakeFiles\miniftpd.dir\objects1.rsp
-C:\mingw64\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\miniftpd.dir/objects.a -Wl,--no-whole-archive  -o miniftpd.exe -Wl,--out-implib,libminiftpd.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\miniftpd.dir\linklibs.rsp
