@@ -60,6 +60,4 @@
 #define MAX_LINE         1024
 #define HALF_YEAR_SEC    182*24*3600
 
-#
-
 #endif //_COMMON_H_
